@@ -4,13 +4,12 @@ Library that enables Python Users to use concepts of Analytic Geometry!
 
 Classes available for usage:
 
->>> Point
-------> Point(a,b)
-------> distance(self,point_two)
-------> midpoint(self,point_two)
-
->>> Area
-------> squarearea(a)
+  * Point
+    * Point(a,b)
+    * distance(self,point_two)
+    * midpoint(self,point_two)
+  * Area
+    * squarearea(a)
 
 
 Classes that we are working on:
