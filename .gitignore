@@ -83,3 +83,5 @@ ENV/
 
 # Spyder project settings
 .spyderproject
+
+tests/tester.py
