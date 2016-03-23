@@ -1,29 +1,10 @@
 """
-GeoMath Calculations Module
+GeoMath - Analytical Geometry Module
 Originally written by: Vinicius Mesel and Eduardo Mendes
 Last Modification: 23/03/2016 #vmesel
 """
 
 from math import sqrt
-
-"""
-How to use the Point Class
-ex distance:
-	>>> point = Point(1,2)
-	>>> point2 = Point(2,1)
-	>>> point.distance(point2)
-			#out: 1.4142135623730951
-ex representation:
-	>>> point = Point(1,2)
-	>>> print(point)
-		#out Point(1,2)
-ex introspection:
-	>>> type(point)
-		#out Point
-ex midpoint:
-	>>> point.midpoint(point2)
-		#out (1.5, 1.5)
-"""
 
 class Point:
 	"Object type cartesian Point"
@@ -49,16 +30,38 @@ class Point:
 		(self.x + point_two.x)/2 , (self.y + point_two.y)/2
 		)
 
-class Area:
+class Figure:
 	def squarearea(a):
 		return(a**2)
-		
-		
-		
-from nose import with_setup # optional
 
-def testing():
-    print(assert Point(1,2) == "Point(1,2)")
-    print(assert Point(9,8).distance(Point(1,2)) == 10.0)
-    print(assert Point(9,8).midpoint(Point(1,2)) == "(5.0, 5.0)")
-    print(assert Area.squarearea(4) == 16)
+	def barycenter(points):
+		i = 0
+		arrayx = []
+		arrayy = []
+		for point in points:
+			arrayx.append(point.x)
+			arrayy.append(point.y)
+
+		XPoint = sum(arrayx)/len(arrayx)
+		YPoint = sum(arrayx)/len(arrayy)
+
+		return(("Point(%s, %s)") % (XPoint, YPoint))
+
+
+
+# Defining tests for the TravisCI and Build Checking
+from nose import with_setup # optional
+import unittest
+
+def testtwo():
+	print("Testando 2")
+	assert(Point(9,8).distance(Point(1,2)) == 10)
+def testthree():
+	print("Testando 3")
+	assert(str(Point(9,8).midpoint(Point(1,2)) == "(5.0, 5.0)"))
+def testfour():
+	print("Testando 4")
+	assert(Figure.squarearea(4) == 16)
+def testfive():
+	print("Testando 5")
+	assert(Figure.barycenter([Point(1,2),Point(2,3),Point(4,5)]) == "Point(2.3333333333333335, 2.3333333333333335)")
