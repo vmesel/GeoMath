@@ -1,7 +1,7 @@
 """
 GeoMath Calculations Module
 Originally written by: Vinicius Mesel and Eduardo Mendes
-Last Modification: 22/03/2016 #Z4r4tu5tr4
+Last Modification: 23/03/2016 #vmesel
 """
 
 from math import sqrt
