@@ -1,5 +1,5 @@
 """
-GeoMath Calculations Module
+GeoMath - Analytical Geometry Module
 Originally written by: Vinicius Mesel and Eduardo Mendes
 Last Modification: 23/03/2016 #vmesel
 """
@@ -49,7 +49,7 @@ class Figure:
 
 
 
-
+# Defining tests for the TravisCI and Build Checking
 from nose import with_setup # optional
 
 def testing():
