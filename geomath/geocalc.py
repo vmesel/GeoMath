@@ -31,7 +31,7 @@ class Point:
 		)
 
 class Figure:
-	def squarearea(self, a):
+	def squarearea(a):
 		return(a**2)
 
 	def barycenter(points):
@@ -51,11 +51,17 @@ class Figure:
 
 # Defining tests for the TravisCI and Build Checking
 from nose import with_setup # optional
+import unittest
 
-def testing():
-	su = [Point(1,2),Point(2,3),Point(4,5)]
-    print(assert Point(1,2) == "Point(1,2)")
-    print(assert Point(9,8).distance(Point(1,2)) == 10.0)
-    print(assert Point(9,8).midpoint(Point(1,2)) == "(5.0, 5.0)")
-    print(assert Area.squarearea(4) == 16)
-	print(assert Figure.barycenter(su) = "Point(2.3333333333333335, 2.3333333333333335)")
+def testtwo():
+	print("Testando 2")
+	assert(Point(9,8).distance(Point(1,2)) == 10)
+def testthree():
+	print("Testando 3")
+	assert(str(Point(9,8).midpoint(Point(1,2)) == "(5.0, 5.0)"))
+def testfour():
+	print("Testando 4")
+	assert(Figure.squarearea(4) == 16)
+def testfive():
+	print("Testando 5")
+	assert(Figure.barycenter([Point(1,2),Point(2,3),Point(4,5)]) == "Point(2.3333333333333335, 2.3333333333333335)")
