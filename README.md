@@ -8,12 +8,12 @@ Classes available for usage:
     * Point(a,b)
     * distance(self,point_two)
     * midpoint(self,point_two)
-  * Area
+  * Figure
     * squarearea(a)
+    * Barycenter
 
 
 Classes that we are working on:
- - Barycenter
  - Three Points alignment
  - And many more!
 
