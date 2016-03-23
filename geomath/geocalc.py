@@ -52,3 +52,13 @@ class Point:
 class Area:
 	def squarearea(a):
 		return(a**2)
+		
+		
+		
+from nose import with_setup # optional
+
+def testing():
+    print(assert Point(1,2) == "Point(1,2)")
+    print(assert Point(9,8).distance(Point(1,2)) == 10.0)
+    print(assert Point(9,8).midpoint(Point(1,2)) == "(5.0, 5.0)")
+    print(assert Area.squarearea(4) == 16)
