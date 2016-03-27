@@ -1,7 +1,7 @@
 """
 GeoMath - Analytical Geometry Module
 Originally written by: Vinicius Mesel and Eduardo Mendes
-Last Modification: 23/03/2016 #vmesel
+Last Modification: 24/03/2016 #z4r4tu5tr4
 """
 
 from math import sqrt
@@ -19,21 +19,73 @@ class Point:
 		return (("Point(%s, %s)") % (self.x, self.y))
 
 	#Defines the distance between two points
+	@property
 	def distance(self, point_two):
 		return sqrt(
 				pow(point_two.x - self.x, 2) + pow(point_two.y - self.y, 2)
 				)
 
 	#Defined the midpoint between two points
+	@property
 	def midpoint(self, point_two):
 		return(
 		(self.x + point_two.x)/2 , (self.y + point_two.y)/2
 		)
 
-class Figure:
-	def squarearea(a):
-		return(a**2)
+class Line:
+	def __init__(self, point1, point2):
+		self.point1 = point1
+		self.point2 = point2
 
+	def __repr__(self):
+		return (("L(%s,%s)") % (self.point1,self.point2))
+	@property
+	def length(self):
+		return self.point1.distance(self.point2)
+
+class Figure:
+	pass
+
+class Rectangle(Figure):
+
+	def __init__(self, point1, point2):
+		self.point1 = point1
+		self.point2 = point2
+
+	def __repr__(self):
+		return (("R(%s,%s)") % (self.point1,self.point2))
+
+	#----- immutable properties
+	@property
+	def width(self):
+		return self.point2.x - self.point1.x
+
+	@property
+	def height(self):
+		return self.point2.y - self.point1.y
+
+	@property
+	def area(self):
+		return self.height * self.width
+
+class Square(Figure):
+
+	def __init__(self, point1, point2):
+		self.point1 = point1
+		self.point2 = point2
+
+	def __repr__(self):
+		return (("R(%s,%s)") % (self.point1,self.point2))
+
+	#----- immutable properties
+	@property
+	def side(self):
+		return self.point2.y - self.point1.y
+
+	@property
+	def area(self):
+		return self.side * self.side
+"""
 	def barycenter(points):
 		i = 0
 		arrayx = []
@@ -46,22 +98,4 @@ class Figure:
 		YPoint = sum(arrayx)/len(arrayy)
 
 		return(("Point(%s, %s)") % (XPoint, YPoint))
-
-
-
-# Defining tests for the TravisCI and Build Checking
-from nose import with_setup # optional
-import unittest
-
-def testtwo():
-	print("Testando 2")
-	assert(Point(9,8).distance(Point(1,2)) == 10)
-def testthree():
-	print("Testando 3")
-	assert(str(Point(9,8).midpoint(Point(1,2)) == "(5.0, 5.0)"))
-def testfour():
-	print("Testando 4")
-	assert(Figure.squarearea(4) == 16)
-def testfive():
-	print("Testando 5")
-	assert(Figure.barycenter([Point(1,2),Point(2,3),Point(4,5)]) == "Point(2.3333333333333335, 2.3333333333333335)")
+"""
