@@ -3,7 +3,9 @@ GeoMath - Analytical Geometry Module
 Originally written by: Vinicius Mesel and Eduardo Mendes
 Last Modification: 23/03/2016 #vmesel
 """
-
+# Defining tests for the TravisCI and Build Checking
+import unittest
+# from nose import with_setup  # optional
 from math import sqrt
 
 
@@ -38,7 +40,6 @@ class Figure:
         return(a**2)
 
     def barycenter(points):
-        i = 0
         arrayx = []
         arrayy = []
         for point in points:
@@ -51,9 +52,24 @@ class Figure:
         return(("Point(%s, %s)") % (XPoint, YPoint))
 
 
-# Defining tests for the TravisCI and Build Checking
-from nose import with_setup  # optional
-import unittest
+class Line:
+
+    def coef_angular(x, x0, y, y0):
+        '''
+        Dados dois pontos da reta (x,y) e (x_0, y_0) temos que
+        o coeficiente linear é dado por
+        m = \frac{\Delta y}{\Delta x} = \frac{y - y_0}{x - x_0}
+        '''
+        if x - x0:
+            return (y - y0) / (x - x0)
+
+    def coef_linear(a, x, y):
+        '''
+        Dados o coeficiente angular (m) e um ponto (x, y) da reta temos que
+        o coeficiente linear da reta é dado por
+        b = y - ax
+        '''
+        return y - a * x
 
 
 class PointTest(unittest.TestCase):
@@ -70,6 +86,19 @@ class PointTest(unittest.TestCase):
     def test_five(self):
         assert(Figure.barycenter([Point(1, 2), Point(2, 3), Point(
             4, 5)]) == "Point(2.3333333333333335, 2.3333333333333335)")
+
+    def test_coef_angular1(self):
+        assert(Line.coef_angular(0, 1, 0, 1) == 1)
+
+    def test_coef_angular2(self):
+        assert(Line.coef_angular(0, -1, 0, 1) == -1)
+
+    def test_coef_linear1(self):
+        assert(Line.coef_linear(1, 0, 0) == 0)
+
+    def test_coef_linear2(self):
+        assert(Line.coef_linear(-1, 0, 0) == 0)
+
 
 if __name__ == '__main__':
     unittest.main()
