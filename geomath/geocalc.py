@@ -41,18 +41,38 @@ class Line:
             (point_one.x + point_two.x) / 2, (point_one.y + point_two.y) / 2
         )
 
+    # Contribution by Regis da Silva(rg3915)
+    def angularCoefficient(x, x0, y, y0):
+        if x - x0:
+            return (y - y0) / (x - x0)
+
+    def linearCoefficient(a, x, y):
+        return(y - a * x)
+
 
 class Figure:
     "Figure Object in GeoMath library"
+    def __init__(self):
+        self.points = []
+
+    def addPoint(self, point):
+        self.points.append((point))
+
+    def addPoints(self, point):
+        for p in point:
+            self.points.append((p))
+
     # Perimeter formula for getting the figure perimeter
-    def perimeter(points):
+    def perimeter(self):
         "Perimeter Property for Figure Object in GeoMath library"
         perimeter = 0.0
-        points = self.points() + [self.points[0]]
-        for i in range(len(self.points)):
-            perimeter += distance(points[i], points[i+1])
-
-        return perimeter
+        if len(self.points) => 3:
+            points = self.points + [self.points[0]]
+            for i in range(len(self.points)):
+                perimeter += Line.distance(points[i], points[i+1])
+            return(perimeter)
+        else:
+            return("You need at least 3 points to calculate the Perimeter property!")
 
 
     # Calculating figure barycenter
