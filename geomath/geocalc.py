@@ -47,32 +47,12 @@ class Figure:
     # Perimeter formula for getting the figure perimeter
     def perimeter(points):
         "Perimeter Property for Figure Object in GeoMath library"
-        tempPoints = []
-        perimeterValues = []
+        perimeter = 0.0
+        points = self.points() + [self.points[0]]
+        for i in range(len(self.points)):
+            perimeter += distance(points[i], points[i+1])
 
-        # Apply recursion for getting this property to work
-
-        if len(points) < 3:
-            return("It's not possible to get a perimeter of a line/point")
-        else:
-            while len(points) != 0:
-                print(len(points))
-                # Load a Point, if there is no point loaded
-                if tempPoints == []:
-                    tempPoints.append(points[0])
-                    points.remove(points[0])
-
-                # Load another point so it can be possible to make the permiter calculation
-                elif len(tempPoints) == 1:
-                    tempPoints.append(points[0])
-                    points.remove(points[0])
-
-                # Make the permiter calculation
-                elif len(tempPoints) == 2:
-                    permiterValues.append(str(Line.distance(tempPoints[0],tempPoints[1])))
-
-                return(perimeterValues)
-
+        return perimeter
 
 
     # Calculating figure barycenter
