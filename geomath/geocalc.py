@@ -9,13 +9,26 @@ class Point:
     "Point Object in GeoMath library"
 
     # Defines the Point(x, y)
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+    def __init__(self, *args):
+        nargs = len(args)
+
+        if nargs > 0:
+            self.x = float(args[0])
+            self.y = float(args[1])
+        else:
+            self.x = float(0)
+            self.y = float(0)
+
+    # Return a dict with the point coordinates
+    def mapping(self):
+        return({
+            'x': self.x,
+            'y': self.y
+        })
 
     # Defines the output of the point
     def __repr__(self):
-        return (("Point(%s, %s)") % (self.x, self.y))
+        return (("%s(%s, %s)") % (self.__class__.__name__, self.x, self.y))
 
 class Line:
     "Line Object in GeoMath library"
@@ -66,7 +79,7 @@ class Figure:
     def perimeter(self):
         "Perimeter Property for Figure Object in GeoMath library"
         perimeter = 0.0
-        if len(self.points) => 3:
+        if len(self.points) >= 3:
             points = self.points + [self.points[0]]
             for i in range(len(self.points)):
                 perimeter += Line.distance(points[i], points[i+1])
