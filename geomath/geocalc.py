@@ -26,6 +26,33 @@ class Point:
             'y': self.y
         })
 
+    # Midpoint between "self" and "other".
+    def midpoint(self, other):
+        '''
+        :param: other - Point subclass
+        :return: Point subclass
+        '''
+        Xm = ((self.x + other.x)/2)
+        Ym = ((self.y + other.y)/2)
+
+        return(Point(Xm, Ym))
+
+    # Euclidean distance between "self" and "other".
+    def distance(self, other=None):
+        '''
+        If other is not specified, the origin point is used.
+
+        :param: other - Point subclass
+        :return: float
+        '''
+        if other is None:
+            other = self.__class__()
+
+        Xd = pow(other.x - self.x, 2)
+        Yd = pow(other.y - self.y, 2)
+
+        return(sqrt(Xd + Yd))
+
     # Defines the output of the point
     def __repr__(self):
         return (("%s(%s, %s)") % (self.__class__.__name__, self.x, self.y))
@@ -41,18 +68,6 @@ class Line:
         elif len(points) == 2:
             # Apply Sarrus Law
             pass
-
-    # Define the distance between two points
-    def distance(point_one, point_two):
-        return sqrt(
-            pow(point_two.x - point_one.x, 2) + pow(point_two.y - point_one.y, 2)
-        )
-
-    # Defined the midpoint between two points
-    def midpoint(point_one, point_two):
-        return(
-            (point_one.x + point_two.x) / 2, (point_one.y + point_two.y) / 2
-        )
 
     # Contribution by Regis da Silva(rg3915)
     def angularCoefficient(x, x0, y, y0):
