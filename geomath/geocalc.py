@@ -53,6 +53,19 @@ class Point:
 
         return(sqrt(Xd + Yd))
 
+    # The quadrant of point  "self".
+    def quadrant(self):
+        if self.x > 0 and self.y > 0:
+            return(1)
+        elif self.x < 0 and self.y > 0:
+            return(2)
+        elif self.x < 0 and self.y < 0:
+            return(3)
+        elif self.x > 0 and self.y < 0:
+            return(4)
+        else:
+            return(0)
+
     # Defines the output of the point
     def __repr__(self):
         return (("%s(%s, %s)") % (self.__class__.__name__, self.x, self.y))
