@@ -13,30 +13,30 @@ class Point:
         self.x = float(x)
         self.y = float(y)
 
-    # Midpoint between "self" and "other".
-    def midpoint(self, other):
+    # Midpoint between "self" and "pointTwo".
+    def midpoint(self, pointTwo):
         '''
-        :param: other - Point subclass
+        :param: pointTwo - Point subclass
         :return: Point subclass
         '''
-        Xm = ((self.x + other.x)/2)
-        Ym = ((self.y + other.y)/2)
+        Xm = ((self.x + pointTwo.x)/2)
+        Ym = ((self.y + pointTwo.y)/2)
 
         return(Point(Xm, Ym))
 
-    # Euclidean distance between "self" and "other".
-    def distance(self, other=None):
+    # Euclidean distance between "self" and "pointTwo".
+    def distance(self, pointTwo=None):
         '''
-        If other is not specified, the origin point is used.
+        If pointTwo is not specified, the origin point is used.
 
-        :param: other - Point subclass
+        :param: pointTwo - Point subclass
         :return: float
         '''
-        if other is None:
-            other = self.__class__()
+        if pointTwo is None:
+            pointTwo = self.__class__()
 
-        Xd = pow(other.x - self.x, 2)
-        Yd = pow(other.y - self.y, 2)
+        Xd = pow(pointTwo.x - self.x, 2)
+        Yd = pow(pointTwo.y - self.y, 2)
 
         return(sqrt(Xd + Yd))
 
@@ -60,30 +60,30 @@ class Point:
 class Line:
     "Line Object in GeoMath library"
     
-    def __init__(self, A=None, B=None):
+    def __init__(self, pointOne=None, pointTwo=None):
         '''
-        :param: A - Point subclass
-        :param: B - Point subclass
+        :param: pointOne - Point subclass
+        :param: pointTwo - Point subclass
         '''
-        self.A = A
-        self.B = B
+        self.pointOne = pointOne
+        self.pointTwo = pointTwo
 
     def lineEquation(self):
         '''
         :return: Return the general and simplified equation converted to dict
         '''
-        respGeneral = str(self.equationX)+'x+'+str(self.equationY)+'y+'+str(self.equationB)+'=0'
-        respSimplified = 'y='+str(self.angularCoefficient)+'x+'+str(self.linearCoefficient)
+        GeneralAns = str(self.equationX)+'x+'+str(self.equationY)+'y+'+str(self.equationB)+'=0'
+        SimplifiedAns = 'y='+str(self.angularCoefficient)+'x+'+str(self.linearCoefficient)
 
         if self.equationB < 0:
-            respStr = str(self.equationX)+'x+'+str(self.equationX)+'y'+str(self.equationB)+'=0'
+            GeneralAns = str(self.equationX)+'x+'+str(self.equationX)+'y'+str(self.equationB)+'=0'
 
         if self.linearCoefficient < 0:
-            respSimplified = 'y='+str(self.angularCoefficient)+'x'+str(self.linearCoefficient)
+            SimplifiedAns = 'y='+str(self.angularCoefficient)+'x'+str(self.linearCoefficient)
 
         return({
-        'general': respGeneral,
-        'simplified': respSimplified
+        'general': GeneralAns,
+        'simplified': SimplifiedAns
         })
 
     @property
@@ -91,28 +91,28 @@ class Line:
         '''
         :return: Return the coefficient of x in the general equation of the line
         '''
-        return(self.A.y - self.B.y)
+        return(self.pointOne.y - self.pointTwo.y)
 
     @property
     def equationY(self):
         '''
         :return: Return the coefficient of y in the general equation of the line
         '''
-        return(self.B.x - self.A.x)
+        return(self.pointTwo.x - self.pointOne.x)
 
     @property
     def equationB(self):
         '''
         :return: Return the coefficient of b in the general equation of the line. Example( x + y + b = 0)
         '''
-        return((self.A.x * self.B.y) - (self.A.y * self.B.x))
+        return((self.pointOne.x * self.pointTwo.y) - (self.pointOne.y * self.pointTwo.x))
 
     # Contribution by Regis da Silva(rg3915) and factored by Wellington dos Santos (Wellington475)
     @property
     def angularCoefficient(self):
         try:
-            deltY = (self.B.y - self.A.y)
-            deltX = (self.B.x - self.A.x)
+            deltY = (self.pointTwo.y - self.pointOne.y)
+            deltX = (self.pointTwo.x - self.pointOne.x)
             
             return(deltY/deltX)
         except ZeroDivisionError:
@@ -120,16 +120,16 @@ class Line:
 
     @property
     def linearCoefficient(self):
-        return(self.A.y - (self.angularCoefficient * self.A.x))
+        return(self.pointOne.y - (self.angularCoefficient * self.pointOne.x))
 
     def isVertical(self):
-        return(self.A.x == self.B.x)
+        return(self.pointOne.x == self.pointTwo.x)
 
     def isHorizontal(self):
-        return(self.A.y == self.B.y)
+        return(self.pointOne.y == self.pointTwo.y)
 
     def __repr__(self):
-        return(('%s(%s, %s)') % (self.__class__.__name__, self.A, self.B))
+        return(('%s(%s, %s)') % (self.__class__.__name__, self.pointOne, self.pointTwo))
 
 
 class Figure:
