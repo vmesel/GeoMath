@@ -9,22 +9,9 @@ class Point:
     "Point Object in GeoMath library"
 
     # Defines the Point(x, y)
-    def __init__(self, *args):
-        nargs = len(args)
-
-        if nargs > 0:
-            self.x = float(args[0])
-            self.y = float(args[1])
-        else:
-            self.x = float(0)
-            self.y = float(0)
-
-    # Return a dict with the point coordinates
-    def mapping(self):
-        return({
-            'x': self.x,
-            'y': self.y
-        })
+    def __init__(self, x, y):
+        self.x = float(x)
+        self.y = float(y)
 
     # Midpoint between "self" and "other".
     def midpoint(self, other):
