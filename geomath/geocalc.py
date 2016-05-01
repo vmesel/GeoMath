@@ -10,44 +10,126 @@ class Point:
 
     # Defines the Point(x, y)
     def __init__(self, x, y):
-        self.x = x
-        self.y = y
+        self.x = float(x)
+        self.y = float(y)
+
+    # Midpoint between "self" and "other".
+    def midpoint(self, other):
+        '''
+        :param: other - Point subclass
+        :return: Point subclass
+        '''
+        Xm = ((self.x + other.x)/2)
+        Ym = ((self.y + other.y)/2)
+
+        return(Point(Xm, Ym))
+
+    # Euclidean distance between "self" and "other".
+    def distance(self, other=None):
+        '''
+        If other is not specified, the origin point is used.
+
+        :param: other - Point subclass
+        :return: float
+        '''
+        if other is None:
+            other = self.__class__()
+
+        Xd = pow(other.x - self.x, 2)
+        Yd = pow(other.y - self.y, 2)
+
+        return(sqrt(Xd + Yd))
+
+    # The quadrant of point  "self".
+    def quadrant(self):
+        if self.x > 0 and self.y > 0:
+            return(1)
+        elif self.x < 0 and self.y > 0:
+            return(2)
+        elif self.x < 0 and self.y < 0:
+            return(3)
+        elif self.x > 0 and self.y < 0:
+            return(4)
+        else:
+            return(0)
 
     # Defines the output of the point
     def __repr__(self):
-        return (("Point(%s, %s)") % (self.x, self.y))
+        return(("%s(%s, %s)") % (self.__class__.__name__, self.x, self.y))
 
 class Line:
     "Line Object in GeoMath library"
-    # Defines the distance between two points
+    
+    def __init__(self, A=None, B=None):
+        '''
+        :param: A - Point subclass
+        :param: B - Point subclass
+        '''
+        self.A = A
+        self.B = B
 
-    def lineEquation(points):
-        if len(points) == 1:
-            # Apply Angular coeficient for discovering line
-            pass
-        elif len(points) == 2:
-            # Apply Sarrus Law
-            pass
+    def lineEquation(self):
+        '''
+        :return: Return the general and simplified equation converted to dict
+        '''
+        respGeneral = str(self.equationX)+'x+'+str(self.equationY)+'y+'+str(self.equationB)+'=0'
+        respSimplified = 'y='+str(self.angularCoefficient)+'x+'+str(self.linearCoefficient)
 
-    # Define the distance between two points
-    def distance(point_one, point_two):
-        return sqrt(
-            pow(point_two.x - point_one.x, 2) + pow(point_two.y - point_one.y, 2)
-        )
+        if self.equationB < 0:
+            respStr = str(self.equationX)+'x+'+str(self.equationX)+'y'+str(self.equationB)+'=0'
 
-    # Defined the midpoint between two points
-    def midpoint(point_one, point_two):
-        return(
-            (point_one.x + point_two.x) / 2, (point_one.y + point_two.y) / 2
-        )
+        if self.linearCoefficient < 0:
+            respSimplified = 'y='+str(self.angularCoefficient)+'x'+str(self.linearCoefficient)
 
-    # Contribution by Regis da Silva(rg3915)
-    def angularCoefficient(x, x0, y, y0):
-        if x - x0:
-            return (y - y0) / (x - x0)
+        return({
+        'general': respGeneral,
+        'simplified': respSimplified
+        })
 
-    def linearCoefficient(a, x, y):
-        return(y - a * x)
+    @property
+    def equationX(self):
+        '''
+        :return: Return the coefficient of x in the general equation of the line
+        '''
+        return(self.A.y - self.B.y)
+
+    @property
+    def equationY(self):
+        '''
+        :return: Return the coefficient of y in the general equation of the line
+        '''
+        return(self.B.x - self.A.x)
+
+    @property
+    def equationB(self):
+        '''
+        :return: Return the coefficient of b in the general equation of the line. Example( x + y + b = 0)
+        '''
+        return((self.A.x * self.B.y) - (self.A.y * self.B.x))
+
+    # Contribution by Regis da Silva(rg3915) and factored by Wellington dos Santos (Wellington475)
+    @property
+    def angularCoefficient(self):
+        try:
+            deltY = (self.B.y - self.A.y)
+            deltX = (self.B.x - self.A.x)
+            
+            return(deltY/deltX)
+        except ZeroDivisionError:
+            raise ZeroDivisionError('[%s error] Slope does not exist (the line is vertical).' % (self.__class__.__name__))
+
+    @property
+    def linearCoefficient(self):
+        return(self.A.y - (self.angularCoefficient * self.A.x))
+
+    def isVertical(self):
+        return(self.A.x == self.B.x)
+
+    def isHorizontal(self):
+        return(self.A.y == self.B.y)
+
+    def __repr__(self):
+        return(('%s(%s, %s)') % (self.__class__.__name__, self.A, self.B))
 
 
 class Figure:
@@ -66,7 +148,7 @@ class Figure:
     def perimeter(self):
         "Perimeter Property for Figure Object in GeoMath library"
         perimeter = 0.0
-        if len(self.points) => 3:
+        if len(self.points) >= 3:
             points = self.points + [self.points[0]]
             for i in range(len(self.points)):
                 perimeter += Line.distance(points[i], points[i+1])
