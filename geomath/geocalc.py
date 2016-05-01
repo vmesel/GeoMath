@@ -68,22 +68,34 @@ class Line:
         self.pointOne = pointOne
         self.pointTwo = pointTwo
 
-    def lineEquation(self):
+    def lineEquation(self, option=None):
         '''
-        :return: Return the general and simplified equation converted to dict
+        If no option to return dict with the two equations
+        
+        :param: option - String identification to type of equation
+        :return: Return the general and simplified equation converted to dict or string if declared option.
         '''
         GeneralAns = str(self.equationX)+'x+'+str(self.equationY)+'y+'+str(self.equationB)+'=0'
         SimplifiedAns = 'y='+str(self.angularCoefficient)+'x+'+str(self.linearCoefficient)
 
+        if self.equationY < 0 and self.equationB > 0:
+            GeneralAns = str(self.equationX)+'x+('+str(self.equationY)+'y)+'+str(self.equationB)+'=0'
+
         if self.equationB < 0:
-            GeneralAns = str(self.equationX)+'x+'+str(self.equationX)+'y'+str(self.equationB)+'=0'
+            GeneralAns = str(self.equationX)+'x+'+str(self.equationY)+'y'+str(self.equationB)+'=0'
 
         if self.linearCoefficient < 0:
             SimplifiedAns = 'y='+str(self.angularCoefficient)+'x'+str(self.linearCoefficient)
 
+        if type(option) is str and option == 'general':
+            return(GeneralAns)
+
+        if type(option) is str and option == 'simplified' or option == 'reduced':
+            return(SimplifiedAns)
+
         return({
-        'general': GeneralAns,
-        'simplified': SimplifiedAns
+            'general': GeneralAns,
+            'simplified': SimplifiedAns
         })
 
     @property
