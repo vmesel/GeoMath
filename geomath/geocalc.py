@@ -122,6 +122,12 @@ class Line:
     def linearCoefficient(self):
         return(self.A.y - (self.angularCoefficient * self.A.x))
 
+    def isVertical(self):
+        return(self.A.x == self.B.x)
+
+    def isHorizontal(self):
+        return(self.A.y == self.B.y)
+
     def __repr__(self):
         return(('%s(%s, %s)') % (self.__class__.__name__, self.A, self.B))
 
