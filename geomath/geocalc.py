@@ -55,27 +55,75 @@ class Point:
 
     # Defines the output of the point
     def __repr__(self):
-        return (("%s(%s, %s)") % (self.__class__.__name__, self.x, self.y))
+        return(("%s(%s, %s)") % (self.__class__.__name__, self.x, self.y))
 
 class Line:
     "Line Object in GeoMath library"
-    # Defines the distance between two points
+    
+    def __init__(self, A=None, B=None):
+        '''
+        :param: A - Point subclass
+        :param: B - Point subclass
+        '''
+        self.A = A
+        self.B = B
 
-    def lineEquation(points):
-        if len(points) == 1:
-            # Apply Angular coeficient for discovering line
-            pass
-        elif len(points) == 2:
-            # Apply Sarrus Law
-            pass
+    def lineEquation(self):
+        '''
+        :return: Return the general and simplified equation converted to dict
+        '''
+        respGeneral = str(self.equationX)+'x+'+str(self.equationY)+'y+'+str(self.equationB)+'=0'
+        respSimplified = 'y='+str(self.angularCoefficient)+'x+'+str(self.linearCoefficient)
 
-    # Contribution by Regis da Silva(rg3915)
-    def angularCoefficient(x, x0, y, y0):
-        if x - x0:
-            return (y - y0) / (x - x0)
+        if self.equationB < 0:
+            respStr = str(self.equationX)+'x+'+str(self.equationX)+'y'+str(self.equationB)+'=0'
 
-    def linearCoefficient(a, x, y):
-        return(y - a * x)
+        if self.linearCoefficient < 0:
+            respSimplified = 'y='+str(self.angularCoefficient)+'x'+str(self.linearCoefficient)
+
+        return({
+        'general': respGeneral,
+        'simplified': respSimplified
+        })
+
+    @property
+    def equationX(self):
+        '''
+        :return: Return the coefficient of x in the general equation of the line
+        '''
+        return(self.A.y - self.B.y)
+
+    @property
+    def equationY(self):
+        '''
+        :return: Return the coefficient of y in the general equation of the line
+        '''
+        return(self.B.x - self.A.x)
+
+    @property
+    def equationB(self):
+        '''
+        :return: Return the coefficient of b in the general equation of the line. Example( x + y + b = 0)
+        '''
+        return((self.A.x * self.B.y) - (self.A.y * self.B.x))
+
+    # Contribution by Regis da Silva(rg3915) and factored by Wellington dos Santos (Wellington475)
+    @property
+    def angularCoefficient(self):
+        try:
+            deltY = (self.B.y - self.A.y)
+            deltX = (self.B.x - self.A.x)
+            
+            return(deltY/deltX)
+        except ZeroDivisionError:
+            raise ZeroDivisionError('[%s error] Slope does not exist (the line is vertical).' % (self.__class__.__name__))
+
+    @property
+    def linearCoefficient(self):
+        return(self.A.y - (self.angularCoefficient * self.A.x))
+
+    def __repr__(self):
+        return(('%s(%s, %s)') % (self.__class__.__name__, self.A, self.B))
 
 
 class Figure:
