@@ -8,15 +8,21 @@ Classes available for usage:
     * Point(a,b)
     * distance(self,point_two)
     * midpoint(self,point_two)
+    * quadrant(self)
   * Figure
-    * squarearea(a)
+    * AddPoint(s)
+    * Perimeter
     * Barycenter
+  * Line
+    * Line(PointA, PointB)
+    * lineEquation(self)
+    * isVertical(self)
+    * isHorizontal(self)
+
 
 
 Classes that we are working on:
- - Three Points alignment (This function require Sarrus Law, this function will be implemented with the help of NumPy)
- - Linear Coeficient and Angular Coeficient
- - Deployment on PIP
- - Equation solver for getting angular and linear coeficient
+ - Three Points alignment (This function require Sarrus Law, we will try to make this as default as possible)
+ - Distance from a line to a point!
 
-If you want to contribute, fork it into a REPO and help us develop this tool for everyone!
+If you want to contribute, fork it into a REPO and help us develop this tool for everyone, or write an Issue so we can work on it!
