@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'geomath',
   packages = ['geomath'],
-  version = '0.1',
+  version = '0.1.1',
   description = 'A Mathematic Library to Handle Eucliedan Geometry',
   author = 'Vinicius Mesel',
   author_email = 'me@vmesel.com',
