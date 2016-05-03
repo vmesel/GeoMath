@@ -5,7 +5,7 @@ class Line:
     def __init__(self, PointOne=None, PointTwo=None):
         '''
         :param: PointOne - First point attached to make the line
-        :param: B - Second point attached to make the line
+        :param: PointTwo - Second point attached to make the line
         '''
         self.PointOne = PointOne
         self.PointTwo = PointTwo
@@ -33,21 +33,21 @@ class Line:
         '''
         :return: Return the coefficient of x in the general equation of the line
         '''
-        return(self.A.y - self.B.y)
+        return(self.PointOne.y - self.PointTwo.y)
 
     @property
     def equationY(self):
         '''
         :return: Return the coefficient of y in the general equation of the line
         '''
-        return(self.B.x - self.A.x)
+        return(self.PointTwo.x - self.PointOne.x)
 
     @property
     def equationB(self):
         '''
         :return: Return the coefficient of b in the general equation of the line. Example( x + y + b = 0)
         '''
-        return((self.A.x * self.B.y) - (self.A.y * self.B.x))
+        return((self.PointOne.x * self.PointTwo.y) - (self.PointOne.y * self.PointTwo.x))
 
     @property
     def angularCoefficient(self):
@@ -61,16 +61,16 @@ class Line:
 
     @property
     def linearCoefficient(self):
-        return(self.A.y - (self.angularCoefficient * self.A.x))
+        return(self.PointOne.y - (self.angularCoefficient * self.PointOne.x))
 
     def isVertical(self):
-        return(self.A.x == self.B.x)
+        return(self.PointOne.x == self.PointTwo.x)
 
     def isHorizontal(self):
-        return(self.A.y == self.B.y)
+        return(self.PointOne.y == self.PointTwo.y)
 
     def __repr__(self):
-        return(('%s(%s, %s)') % (self.__class__.__name__, self.A, self.B))
+        return(('%s(%s, %s)') % (self.__class__.__name__, self.PointOne, self.B))
 
 
     # Create the line and one point distance here def LinePointDistance(point):

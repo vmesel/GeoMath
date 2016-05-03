@@ -7,30 +7,30 @@ class Point:
         self.x = float(x)
         self.y = float(y)
 
-    # Midpoint between "self" and "other".
-    def midpoint(self, pointtwo):
+    # Midpoint between "self" and "PointTwo".
+    def midpoint(self, PointTwo):
         '''
-        :param: pointtwo - Point subclass
+        :param: PointTwo - Point subclass
         :return: Point subclass
         '''
-        Xm = ((self.x + pointtwo.x)/2)
-        Ym = ((self.y + pointtwo.y)/2)
+        Xm = ((self.x + PointTwo.x)/2)
+        Ym = ((self.y + PointTwo.y)/2)
 
         return(Point(Xm, Ym))
 
-    # Euclidean distance between "self" and "other".
-    def distance(self, pointtwo=None):
+    # Euclidean distance between "self" and "PointTwo".
+    def distance(self, PointTwo=None):
         '''
         If other is not specified, the origin point is used.
 
         :param: other - Point subclass
         :return: float
         '''
-        if other is None:
-            other = self.__class__()
+        if PointTwo is None:
+            PointTwo = self.__class__()
 
-        Xd = pow(pointtwo.x - self.x, 2)
-        Yd = pow(pointtwo.y - self.y, 2)
+        Xd = pow(PointTwo.x - self.x, 2)
+        Yd = pow(PointTwo.y - self.y, 2)
 
         return(sqrt(Xd + Yd))
 
