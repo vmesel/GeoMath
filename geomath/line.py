@@ -27,6 +27,7 @@ class Line:
         'general': respGeneral,
         'simplified': respSimplified
         })
+        #return(respGeneral)
 
     @property
     def equationX(self):
@@ -70,7 +71,12 @@ class Line:
         return(self.PointOne.y == self.PointTwo.y)
 
     def __repr__(self):
-        return(('%s(%s, %s)') % (self.__class__.__name__, self.PointOne, self.B))
+        return(('%s(%s, %s)') % (self.__class__.__name__, self.PointOne, self.PointTwo))
 
 
-    # Create the line and one point distance here def LinePointDistance(point):
+    # Create the line and one point distance here! Make it useful!
+    def LinePointDistance(self, PointOne):
+        equationA = ((self.equationX * PointOne.x) + (self.equationY * PointOne.y) + self.equationB)
+        #equationB = sqrt((self.equationX * self.equationX) + (self.equationY * self.equationY))
+        #equation = equationA / equationB
+        return(equationA)
