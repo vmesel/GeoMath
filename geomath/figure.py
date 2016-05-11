@@ -2,8 +2,11 @@ from math import sqrt
 
 class Figure:
     "Figure Object in GeoMath library"
+
     def __init__(self):
         self.points = []
+
+
 
     def addPoint(self, point):
         self.points.append((point))
@@ -40,3 +43,10 @@ class Figure:
         YPoint = sum(arrayx) / len(arrayy)
 
         return(("Point(%s, %s)") % (XPoint, YPoint))
+
+    def __repr__(self):
+        pontos = ""
+        for point in self.points:
+            pontos = pontos + str(point) + " "
+        figureString = "Figure Points: " + pontos
+        return(figureString)
