@@ -4,8 +4,8 @@ class Point:
 
     # Defines the Point(x, y)
     def __init__(self, x, y):
-        self.x = float(x)
-        self.y = float(y)
+        self.x = x
+        self.y = y
 
     # Midpoint between "self" and "PointTwo".
     def midpoint(self, PointTwo):
