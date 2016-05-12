@@ -31,7 +31,7 @@
 
   
     <link rel="top" title="GeoMath 0.1.2 documentation" href="#"/>
-        <link rel="next" title="Points" href="Functions/Points.html"/> 
+        <link rel="next" title="Figures" href="Functions/Figures.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -81,9 +81,10 @@
             
             
                 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Functions/Points.html">Points</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Functions/Lines.html">Lines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Functions/Figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functions/Lines.html">Lines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functions/Points.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="BasicUsage.html">Basic Usage</a></li>
 </ul>
 
             
@@ -144,16 +145,18 @@
 <div class="section" id="installing-from-pypi">
 <h3>Installing from PyPi<a class="headerlink" href="#installing-from-pypi" title="Permalink to this headline">¶</a></h3>
 <p>To install GeoMath from PyPi, first, you have to make sure that you have <code class="docutils literal"><span class="pre">pip</span></code> installed in your computer. With it installed, you just need to run:</p>
-<blockquote>
-<div>$ pip install geomath</div></blockquote>
+<p><code class="docutils literal"><span class="pre">`</span>
+<span class="pre">pip</span> <span class="pre">install</span> <span class="pre">geomath</span>
+<span class="pre">`</span></code></p>
 <p>If everything goes fine with your installation, you just installed GeoMath and you can use it in Python.</p>
 </div>
 <div class="section" id="installing-from-github">
 <h3>Installing from Github<a class="headerlink" href="#installing-from-github" title="Permalink to this headline">¶</a></h3>
 <p>Since GeoMath is under beta stages and during a very hard development state, installing GeoMath from it should not be a great idea. If you want to get the most stable version of the library you should install it via <code class="docutils literal"><span class="pre">pip</span></code>.</p>
 <p>To install the library from Github, you must run this command:</p>
-<blockquote>
-<div>$ git clone <a class="reference external" href="https://www.github.com/vmesel/GeoMath.git">https://www.github.com/vmesel/GeoMath.git</a></div></blockquote>
+<p><code class="docutils literal"><span class="pre">`</span>
+<span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://www.github.com/vmesel/GeoMath.git</span>
+<span class="pre">`</span></code></p>
 <p>After that, you should move GeoMath to the libraries folder in Python, so you can import it from any system.</p>
 <p>Done! Now you can use GeoMath!</p>
 </div>
@@ -163,9 +166,20 @@
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="Functions/Points.html">Points</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functions/Figures.html">Figures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Functions/Figures.html#creating-a-figure">Creating a Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions/Figures.html#figure-attributes">Figure Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions/Figures.html#functions-under-development">Functions Under Development</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Functions/Lines.html">Lines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Functions/Figures.html">Figures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Functions/Points.html">Point</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Functions/Points.html#setting-up-a-point">Setting Up a Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions/Points.html#point-attributes-with-other-points">Point attributes with other Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions/Points.html#point-attributes">Point Attributes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="BasicUsage.html">Basic Usage</a></li>
 </ul>
 </div>
 <div class="section" id="indices-and-tables">
@@ -186,7 +200,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Functions/Points.html" class="btn btn-neutral float-right" title="Points" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Functions/Figures.html" class="btn btn-neutral float-right" title="Figures" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -196,7 +210,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2016, Vinicius Mesel.
+        &copy; Copyright 2016, GeoMath.
 
     </p>
   </div>

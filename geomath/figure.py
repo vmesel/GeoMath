@@ -7,8 +7,6 @@ class Figure:
     def __init__(self):
         self.points = []
 
-
-
     def addPoint(self, point):
         self.points.append((point))
 
@@ -17,7 +15,7 @@ class Figure:
             self.points.append((p))
 
     # Perimeter formula for getting the figure perimeter
-    def perimeter(self):
+    def Perimeter(self):
         "Perimeter Property for Figure Object in GeoMath library"
         perimeter = 0.0
         if len(self.points) >= 3:
@@ -30,7 +28,7 @@ class Figure:
 
 
     # Calculating figure barycenter
-    def barycenter(points):
+    def Barycenter(points):
         "Barycenter Property for Figure Object in GeoMath library"
 
         i = 0
@@ -44,6 +42,20 @@ class Figure:
         YPoint = sum(arrayx) / len(arrayy)
 
         return(("Point(%s, %s)") % (XPoint, YPoint))
+
+    def Area(self):
+        _points = self.points
+        if len(_points) == 3:
+            # Triangle
+            # Calculate the area with matrix
+            pass
+        elif len(_points) == 4:
+            # Square or rectangle
+            pass
+        elif len(_points) > 4:
+            # Polygon
+            pass
+
 
     def __repr__(self):
         pontos = ""
