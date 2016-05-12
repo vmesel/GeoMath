@@ -29,6 +29,10 @@ class Line:
         '''
         return(self.PointOne.y - self.PointTwo.y)
 
+    @ACoefficient.setter
+    def ACoefficient(self, newValue):
+        self.ACoefficient = newValue
+
     @property
     def BCoefficient(self):
         '''
@@ -36,12 +40,20 @@ class Line:
         '''
         return(self.PointTwo.x - self.PointOne.x)
 
+    @BCoefficient.setter
+    def BCoefficient(self, newValue):
+        self.BCoefficient = newValue
+
     @property
     def CCoefficient(self):
         '''
-        :return: Return the coefficient of b in the general equation of the line. Example( x + y + b = 0)
+        :return: Return the coefficient of C in the general equation of the line. Example( x + y + c = 0)
         '''
         return((self.PointOne.x * self.PointTwo.y) - (self.PointOne.y * self.PointTwo.x))
+
+    @CCoefficient.setter
+    def CCoefficient(self, newValue):
+        self.CCoefficient = newValue
 
     @property
     def AngularCoefficient(self):
@@ -53,9 +65,17 @@ class Line:
         except ZeroDivisionError:
             raise ZeroDivisionError('[%s error] Slope does not exist.' % (self.__class__.__name__))
 
+    @AngularCoefficient.setter
+    def AngularCoefficient(self, newValue):
+        self.AngularCoefficient = newValue
+
     @property
     def LinearCoefficient(self):
-        return(self.PointOne.y - (self.angularCoefficient * self.PointOne.x))
+        return(self.PointOne.y - (self.AngularCoefficient * self.PointOne.x))
+
+    @LinearCoefficient.setter
+    def LinearCoefficient(self, newValue):
+        self.LinearCoefficient = newValue
 
     def __repr__(self):
         return(('%s(%s, %s)') % (self.__class__.__name__, self.PointOne, self.PointTwo))
