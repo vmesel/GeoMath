@@ -1,3 +1,4 @@
+#Figure file for the GeoMath library
 from math import sqrt
 
 class Figure:

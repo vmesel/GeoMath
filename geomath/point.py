@@ -1,3 +1,4 @@
+# Point file for the GeoMath library
 from math import sqrt
 class Point:
     "Point Object in GeoMath library"

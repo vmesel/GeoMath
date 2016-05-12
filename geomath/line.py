@@ -1,3 +1,5 @@
+#Line file for the GeoMath library
+
 from math import sqrt
 class Line:
     def __init__(self, PointOne, PointTwo):
