@@ -1,8 +1,10 @@
 #Line file for the GeoMath library
 
 from math import sqrt
+import re
+
 class Line:
-    def __init__(self, PointOne, PointTwo):
+    def __init__(self, PointOne=None, PointTwo=None):
         '''
         :param: PointOne - First point attached to the line
         :param: PointTwo - Second point attached to the line
@@ -10,9 +12,20 @@ class Line:
         self.PointOne = PointOne
         self.PointTwo = PointTwo
 
-    def EquationInput(equation):
-        pass
-            # This is the equation input for working with the line equation
+    def EquationInput(self, equation):
+        try:
+            regx = re.compile(r'(\W?\d+)\S(\W\d+)\S(\W\d+)\=(\W?\d+)')
+            values = regx.findall(equation)
+            values = values[0]
+
+            print(values)
+            self.ACoefficient = float(values[0])
+            self.BCoefficient = float(values[1])
+            self.CCoefficient = float(values[2])
+            
+            return True
+        except ValueError:
+            return False
 
     def Equation(self):
         if self.CCoefficient == 0:
