@@ -1,8 +1,10 @@
 #Line file for the GeoMath library
 
 from math import sqrt
+import re
+
 class Line:
-    def __init__(self, PointOne, PointTwo):
+    def __init__(self, PointOne=None, PointTwo=None):
         '''
         :param: PointOne - First point attached to the line
         :param: PointTwo - Second point attached to the line
@@ -10,9 +12,20 @@ class Line:
         self.PointOne = PointOne
         self.PointTwo = PointTwo
 
-    def EquationInput(equation):
-        pass
-            # This is the equation input for working with the line equation
+    def EquationInput(self, equation):
+        try:
+            regx = re.compile(r'(\W?\d+)\S(\W\d+)\S(\W\d+)\=(\W?\d+)')
+            values = regx.findall(equation)
+            values = values[0]
+
+            print(values)
+            self.ACoefficient = float(values[0])
+            self.BCoefficient = float(values[1])
+            self.CCoefficient = float(values[2])
+            
+            return True
+        except ValueError:
+            return False
 
     def Equation(self):
         if self.CCoefficient == 0:
@@ -29,6 +42,10 @@ class Line:
         '''
         return(self.PointOne.y - self.PointTwo.y)
 
+    @ACoefficient.setter
+    def ACoefficient(self, newValue):
+        self.ACoefficient = newValue
+
     @property
     def BCoefficient(self):
         '''
@@ -36,12 +53,20 @@ class Line:
         '''
         return(self.PointTwo.x - self.PointOne.x)
 
+    @BCoefficient.setter
+    def BCoefficient(self, newValue):
+        self.BCoefficient = newValue
+
     @property
     def CCoefficient(self):
         '''
-        :return: Return the coefficient of b in the general equation of the line. Example( x + y + b = 0)
+        :return: Return the coefficient of C in the general equation of the line. Example( x + y + c = 0)
         '''
         return((self.PointOne.x * self.PointTwo.y) - (self.PointOne.y * self.PointTwo.x))
+
+    @CCoefficient.setter
+    def CCoefficient(self, newValue):
+        self.CCoefficient = newValue
 
     @property
     def AngularCoefficient(self):
@@ -53,9 +78,17 @@ class Line:
         except ZeroDivisionError:
             raise ZeroDivisionError('[%s error] Slope does not exist.' % (self.__class__.__name__))
 
+    @AngularCoefficient.setter
+    def AngularCoefficient(self, newValue):
+        self.AngularCoefficient = newValue
+
     @property
     def LinearCoefficient(self):
-        return(self.PointOne.y - (self.angularCoefficient * self.PointOne.x))
+        return(self.PointOne.y - (self.AngularCoefficient * self.PointOne.x))
+
+    @LinearCoefficient.setter
+    def LinearCoefficient(self, newValue):
+        self.LinearCoefficient = newValue
 
     def __repr__(self):
         return(('%s(%s, %s)') % (self.__class__.__name__, self.PointOne, self.PointTwo))
