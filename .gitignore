@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+*.pyc
 *.py[cod]
 *$py.class
 
@@ -7,7 +8,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-.Python
+@.Python
 env/
 build/
 develop-eggs/
@@ -87,3 +88,4 @@ ENV/
 tests/tester.py
 
 geomath/tester.py
+*.ipynb
