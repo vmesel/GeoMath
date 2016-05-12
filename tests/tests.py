@@ -15,7 +15,14 @@ class PointTest(unittest.TestCase):
     def test_quadrant(self):
         assert(p.Point(2, -8).quadrant() == 4)
 
+    def test_distance2(self):
+        p1 = p.Point(2, 1)
+        p2 = p.Point(2, 4)
+        assert(p.distance2(p1, p2))
+
+
 class LineTest(unittest.TestCase):
+
     def test_line_equation(self):
         p1 = p.Point(2, 2)
         p2 = p.Point(4, 4)
