@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lines &mdash; GeoMath 0.1.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="GeoMath 0.1.2 documentation" href="../index.html"/>
+        <link rel="next" title="Point" href="Points.html"/>
+        <link rel="prev" title="Figures" href="Figures.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GeoMath
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Figures.html">Figures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-the-line">Creating the Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#line-attributes">Line Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#attributes-involving-other-functions">Attributes involving other functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Points.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing.html">Contributing to GeoMath</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">GeoMath</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Lines</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Functions/Lines.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lines">
+<h1>Lines<a class="headerlink" href="#lines" title="Permalink to this headline">¶</a></h1>
+<p>The line statement is the basic statement for the Euclidean Geometry and for everything in geometry. Figures are formed by lines, distances are the length of lines and even more.
+Lines must be used to get general arguments, like angles, line equation, comparisons between to lines and etc.</p>
+<div class="section" id="creating-the-line">
+<h2>Creating the Line<a class="headerlink" href="#creating-the-line" title="Permalink to this headline">¶</a></h2>
+<p>To start with a line you may want to run these commands that are below this statement.</p>
+<dl class="function">
+<dt id="line.Line">
+<code class="descclassname">line.</code><code class="descname">Line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#line.Line" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>To start getting a line done in the GeoMath system, you must run this command! This is an object assigned function, so you must assign it to an object so it can be called</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">LINEVAR</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">Line</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>There are two ways of inputting values for a line: creating a line with 2 Points or by the Line Equation(supposing that you have it).</p>
+<dl class="function">
+<dt id="line.create">
+<code class="descclassname">line.</code><code class="descname">create</code><span class="sig-paren">(</span><em>PointOne</em>, <em>PointTwo</em><span class="sig-paren">)</span><a class="headerlink" href="#line.create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>To get a line assigning two different points to it, you must run this command. It will generate a line in the instance that is in your line.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">LINEVAR</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">point</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Running these commands, we will generate the equation of the line simply by solving the matrix represented by the two points and by the x and y line.</p>
+<dl class="function">
+<dt id="line.create_via_equation">
+<code class="descclassname">line.</code><code class="descname">create_via_equation</code><span class="sig-paren">(</span><em>LineEquation</em><span class="sig-paren">)</span><a class="headerlink" href="#line.create_via_equation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>These command is very useful if you have the line equation. The line equation is inserted by a string formated like this &#8220;ax-by+c=0&#8221;: with the coefficients in the front and with the line</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">LINEVAR</span><span class="o">.</span><span class="n">create_via_equation</span><span class="p">(</span><span class="n">LineEquation</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="line-attributes">
+<h2>Line Attributes<a class="headerlink" href="#line-attributes" title="Permalink to this headline">¶</a></h2>
+<p>In this section, we will explain to you the attributes that the Line() class have in the project!</p>
+<dl class="function">
+<dt id="line.equation">
+<code class="descclassname">line.</code><code class="descname">equation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#line.equation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This is a commmand that will enable you to get the equation of the line you have created.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">LINEVAR</span><span class="o">.</span><span class="n">Equation</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="line.get_angle">
+<code class="descclassname">line.</code><code class="descname">get_angle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#line.get_angle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This function gets the angulation of your line and give it in degrees</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">LINEVAR</span><span class="o">.</span><span class="n">get_angle</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="line.A">
+<code class="descclassname">line.</code><code class="descname">A</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#line.A" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This function returns the A coefficient.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">LINEVAR</span><span class="o">.</span><span class="n">A</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="line.B">
+<code class="descclassname">line.</code><code class="descname">B</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#line.B" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This function returns the B coefficient.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">LINEVAR</span><span class="o">.</span><span class="n">B</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="line.C">
+<code class="descclassname">line.</code><code class="descname">C</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#line.C" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This function returns the C coefficient.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">LINEVAR</span><span class="o">.</span><span class="n">C</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="attributes-involving-other-functions">
+<h2>Attributes involving other functions<a class="headerlink" href="#attributes-involving-other-functions" title="Permalink to this headline">¶</a></h2>
+<p>There are some attributed that depend on other functions, and we are going to list them here below.</p>
+<dl class="function">
+<dt id="line.point_distance">
+<code class="descclassname">line.</code><code class="descname">point_distance</code><span class="sig-paren">(</span><em>self</em>, <em>Point</em><span class="sig-paren">)</span><a class="headerlink" href="#line.point_distance" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This function is made to calculate the distance between a line and a point with a very simple syntax.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">LINEVAR</span><span class="o">.</span><span class="n">point_distance</span><span class="p">(</span><span class="n">Point</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="line.comparisor">
+<code class="descclassname">line.</code><code class="descname">comparisor</code><span class="sig-paren">(</span><em>self</em>, <em>Line</em><span class="sig-paren">)</span><a class="headerlink" href="#line.comparisor" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This function was made to compare two lines and decide if they are parallel, coincident or perpendicular.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">LINEVAR</span><span class="o">.</span><span class="n">comparisor</span><span class="p">(</span><span class="n">Line</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="line.point_alignment">
+<code class="descclassname">line.</code><code class="descname">point_alignment</code><span class="sig-paren">(</span><em>self</em>, <em>Point</em><span class="sig-paren">)</span><a class="headerlink" href="#line.point_alignment" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This function is to check the 3 point alignment, but for using it, you need to create a line and check the alignment of a point in the line.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">LINEVAR</span><span class="o">.</span><span class="n">point_alignment</span><span class="p">(</span><span class="n">Point</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Points.html" class="btn btn-neutral float-right" title="Point" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Figures.html" class="btn btn-neutral" title="Figures" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, GeoMath.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
