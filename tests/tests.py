@@ -48,19 +48,6 @@ class LineTest(unittest.TestCase):
 
         assert(line.C == (-2.0))
 
-    def test_coef_angular(self):
-        p1 = p.Point(2, 2)
-        p2 = p.Point(4, 4)
-        line = l.Line(p1, p2)
 
-        assert(line.Angular == 1)
-
-    def test_coef_linear(self):
-        p1 = p.Point(2, 2)
-        p2 = p.Point(4, 4.5)
-        line = l.Line(p1, p2)
-
-        assert(line.linearCoefficient == (-0.5))
-"""
 if __name__ == '__main__':
     unittest.main()
