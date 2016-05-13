@@ -1,4 +1,5 @@
 # Defining tests for the TravisCI and Build Checking
+# Tests are run everytime a Pull Request or a Commit is pushed to the GeoMath repo
 from geomath import point as p
 from geomath import line as l
 from geomath import figure as f
