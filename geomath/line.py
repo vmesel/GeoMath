@@ -25,6 +25,7 @@ class Line:
         self.A = values[0]
         self.B = values[1]
         self.C = values[2]
+        self.Angular = (float(values[0]) / float(values[1]))
 
     def Equation(self):
         if self.createdby == "equation":
@@ -34,6 +35,10 @@ class Line:
             self.B = (self.PointTwo.x - self.PointOne.x)
             self.C = ((self.PointOne.x * self.PointTwo.y) - (self.PointOne.y * self.PointTwo.x))
             return("{}x{}y{}=0".format(self.A, self.B, self.C)) # Fix the return of the equation!
+
+    def CoordinatedPoints(self):
+        #Here we should calculate two points that are (x,0) and (0,y)
+        pass
 
 
     def __repr__(self):
@@ -49,4 +54,4 @@ class Line:
         if EquationA == 0:
             raise ValueError('Point is inside the line!')
         EquationB = sqrt((float(self.A) * float(self.A)) + (float(self.B) * float(self.B)))
-        return(float(EquationA) / float(EquationB))
+        return((float(EquationA) / float(EquationB)))
