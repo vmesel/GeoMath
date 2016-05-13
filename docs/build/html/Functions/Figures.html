@@ -1,0 +1,280 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Figures &mdash; GeoMath 0.1.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="GeoMath 0.1.2 documentation" href="../index.html"/>
+        <link rel="next" title="Lines" href="Lines.html"/>
+        <link rel="prev" title="Welcome to GeoMath’s documentation!" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GeoMath
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Figures</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-a-figure">Creating a Figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#figure-attributes">Figure Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions-under-development">Functions Under Development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Lines.html">Lines</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Points.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing.html">Contributing to GeoMath</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">GeoMath</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Figures</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/Functions/Figures.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="figures">
+<h1>Figures<a class="headerlink" href="#figures" title="Permalink to this headline">¶</a></h1>
+<p>The figures functions are made to handle figures made of points and calculate stuff like barycenter, points, Perimeter and others that we are working on!</p>
+<div class="section" id="creating-a-figure">
+<h2>Creating a Figure<a class="headerlink" href="#creating-a-figure" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="figure.Figure">
+<code class="descclassname">figure.</code><code class="descname">Figure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#figure.Figure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This is the function to start creating figures. This function is very simple to be used, you just need to type in this with a variable to make the variable become the figure!</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">FIGUREVAR</span> <span class="o">=</span> <span class="n">figure</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+<span class="go"># This will create your figure</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="figure.addPoint">
+<code class="descclassname">figure.</code><code class="descname">addPoint</code><span class="sig-paren">(</span><em>Point</em><span class="sig-paren">)</span><a class="headerlink" href="#figure.addPoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>Figures are currently made of points, so if you need to make a figure have one more point, you will need to run addPoint</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">FIGUREVAR</span><span class="o">.</span><span class="n">addPoint</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The point that is added must be a GeoMath object, if it&#8217;s not, it won&#8217;t be recognized by the system.</p>
+<dl class="function">
+<dt id="figure.addPoints">
+<code class="descclassname">figure.</code><code class="descname">addPoints</code><span class="sig-paren">(</span><span class="optional">[</span><em>Point1</em>, <em>Point2</em>, <em>...</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#figure.addPoints" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>If you want to add more than one point to an existing figure, you just need to run the command below. It will add the points to the assigned figure.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">FIGUREVAR</span><span class="o">.</span><span class="n">addPoints</span><span class="p">([</span><span class="n">point</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="n">point</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">),</span> <span class="o">...</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>The points that are added must be GeoMath objects, if they are not, they won&#8217;t be recognized by the system.</p>
+</div>
+<div class="section" id="figure-attributes">
+<h2>Figure Attributes<a class="headerlink" href="#figure-attributes" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="figure.Barycenter">
+<code class="descclassname">figure.</code><code class="descname">Barycenter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#figure.Barycenter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This function is very useful, if you need to calculate the barycenter of a figure, it can be done with just one line of code like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">FIGUREVAR</span><span class="o">.</span><span class="n">Barycenter</span><span class="p">()</span>
+<span class="go"># This will return your figure barycenter point</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="functions-under-development">
+<h2>Functions Under Development<a class="headerlink" href="#functions-under-development" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="figure.Perimeter">
+<code class="descclassname">figure.</code><code class="descname">Perimeter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#figure.Perimeter" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This function gets the perimeter of the figure that you have created with the points.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">FIGUREVAR</span><span class="o">.</span><span class="n">Perimeter</span><span class="p">()</span>
+<span class="go"># This will return your figure perimeter</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="figure.Area">
+<code class="descclassname">figure.</code><code class="descname">Area</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#figure.Area" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>This function calculates the area of the figure that you have created with the points.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">FIGUREVAR</span><span class="o">.</span><span class="n">Area</span><span class="p">()</span>
+<span class="go"># This will return your figure perimeter</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Lines.html" class="btn btn-neutral float-right" title="Lines" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral" title="Welcome to GeoMath’s documentation!" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, GeoMath.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
