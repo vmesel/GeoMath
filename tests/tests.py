@@ -24,28 +24,32 @@ class LineTest(unittest.TestCase):
     def test_line_equation(self):
         p1 = p.Point(2, 2)
         p2 = p.Point(4, 4)
-        line = l.Line(p1, p2)
+        line = l.Line()
+        line.create(p1, p2)
 
         assert(type(line.equation()) == str)
 
     def test_ACoefficient(self):
         p1 = p.Point(2, 2.5)
         p2 = p.Point(4, 4)
-        line = l.Line(p1, p2)
+        line = l.Line()
+        line.create(p1, p2)
 
         assert(line.A == (-1.5))
 
     def test_BCoefficient(self):
         p1 = p.Point(2, 2.5)
         p2 = p.Point(4, 4)
-        line = l.Line(p1, p2)
+        line = l.Line()
+        line.create(p1, p2)
 
         assert(line.B == 2.0)
 
     def test_CCoefficient(self):
         p1 = p.Point(2, 2.5)
         p2 = p.Point(4, 4)
-        line = l.Line(p1, p2)
+        line = l.Line()
+        line.create(p1, p2)
 
         assert(line.C == (-2.0))
 
