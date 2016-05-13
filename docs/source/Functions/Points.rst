@@ -24,7 +24,7 @@ Point attributes with other Points
 This is the function that you will want to use when you need to calculate the midpoint from two points, so to use it, you first instantiate the first point and them:
 
 
->>> MidPoint = POINTVariable.point.Midpoint(OtherPoint)
+>>> MidPoint = POINTVariable.point.midpoint(OtherPoint)
 # This will return the MidPoint between POINTVariable and OtherPoint
 
 .. py:function:: point.distance(OtherPoint)
@@ -32,7 +32,7 @@ This is the function that you will want to use when you need to calculate the mi
 If you need to calculate the distance between two points, you don't need to do any difficult calculations for that, you just need to call the function like this:
 
 
->>> Distance = POINTVariable.point.Distance(OtherPoint)
+>>> Distance = POINTVariable.distance(OtherPoint)
 # This will return the distance between POINTVariable and OtherPoint
 
 ---------------------------------

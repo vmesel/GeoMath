@@ -60,8 +60,7 @@ Contents:
 
    Functions/*
 
-   BasicUsage
-   Future updates
+   Contributing
 
 
 Indices and tables

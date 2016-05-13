@@ -1,6 +1,7 @@
 # Defining tests for the TravisCI and Build Checking
 from geomath import point as p
 from geomath import line as l
+from geomath import figure as f
 import unittest
 
 
@@ -15,55 +16,44 @@ class PointTest(unittest.TestCase):
     def test_quadrant(self):
         assert(p.Point(2, -8).quadrant() == 4)
 
+
+# REMAKE
+
 class LineTest(unittest.TestCase):
     def test_line_equation(self):
         p1 = p.Point(2, 2)
         p2 = p.Point(4, 4)
         line = l.Line(p1, p2)
 
-        assert(type(line.lineEquation()) == dict)
+        assert(type(line.equation()) == str)
 
-    def test_x_equation(self):
+    def test_ACoefficient(self):
         p1 = p.Point(2, 2.5)
         p2 = p.Point(4, 4)
         line = l.Line(p1, p2)
 
-        assert(line.equationX == (-1.5))
+        assert(line.A == (-1.5))
 
-    def test_y_equation(self):
+    def test_BCoefficient(self):
         p1 = p.Point(2, 2.5)
         p2 = p.Point(4, 4)
         line = l.Line(p1, p2)
 
-        assert(line.equationY == 2.0)
+        assert(line.B == 2.0)
 
-    def test_b_equation(self):
+    def test_CCoefficient(self):
         p1 = p.Point(2, 2.5)
         p2 = p.Point(4, 4)
         line = l.Line(p1, p2)
 
-        assert(line.equationB == (-2.0))
-
-    def test_is_vertical(self):
-        p1 = p.Point(2, 2)
-        p2 = p.Point(2, 4)
-        line = l.Line(p1, p2)
-
-        assert(line.isVertical() == True)
-
-    def test_is_horizontal(self):
-        p1 = p.Point(2, 2)
-        p2 = p.Point(4, 2)
-        line = l.Line(p1, p2)
-
-        assert(line.isHorizontal() == True)
+        assert(line.C == (-2.0))
 
     def test_coef_angular(self):
         p1 = p.Point(2, 2)
         p2 = p.Point(4, 4)
         line = l.Line(p1, p2)
 
-        assert(line.angularCoefficient == 1)
+        assert(line.Angular == 1)
 
     def test_coef_linear(self):
         p1 = p.Point(2, 2)
@@ -71,6 +61,6 @@ class LineTest(unittest.TestCase):
         line = l.Line(p1, p2)
 
         assert(line.linearCoefficient == (-0.5))
-
+"""
 if __name__ == '__main__':
     unittest.main()

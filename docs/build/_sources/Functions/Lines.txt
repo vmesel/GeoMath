@@ -1,2 +1,30 @@
 Lines
 =====
+
+
+The line statement is the basic statement for the Euclidean Geometry and for everything in geometry. Figures are formed by lines, distances are the length of lines and even more.
+Lines must be used to get general arguments, like angles, line equation, comparisons between to lines and etc.
+
+-----------------
+Creating the Line
+-----------------
+To start with a line you may want to run these commands that are below this statement.
+
+.. py:function:: line.Line()
+
+To start getting a line done in the GeoMath system, you must run this command! This is an object assigned function, so you must assign it to an object so it can be called
+
+```LINEVAR = line.Line()```
+
+
+There are two ways of inputting values for a line: creating a line with 2 Points or by the Line Equation(supposing that you have it).
+
+.. py:function:: line.Create()
+
+To get a line assigning two different points to it, you must run this command. It will generate a line in the instance that is in your line.
+
+```LINEVAR.Create(point.Point(0,0), point.Point(4,4))```
+
+Running these commands, we will generate the equation of the line simply by solving the matrix represented by the two points and by the x and y line.
+
+.. py:function:: line.CreateViaEquation()

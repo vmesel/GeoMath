@@ -31,8 +31,8 @@
 
   
     <link rel="top" title="GeoMath 0.1.2 documentation" href="../index.html"/>
-        <link rel="next" title="Figures" href="Figures.html"/>
-        <link rel="prev" title="Point" href="Points.html"/> 
+        <link rel="next" title="Point" href="Points.html"/>
+        <link rel="prev" title="Figures" href="Figures.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -82,9 +82,13 @@
             
             
                 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Points.html">Point</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Lines</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Figures.html">Figures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-the-line">Creating the Line</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Points.html">Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Contributing.html">Contributing to GeoMath</a></li>
 </ul>
 
             
@@ -131,6 +135,33 @@
             
   <div class="section" id="lines">
 <h1>Lines<a class="headerlink" href="#lines" title="Permalink to this headline">¶</a></h1>
+<p>The line statement is the basic statement for the Euclidean Geometry and for everything in geometry. Figures are formed by lines, distances are the length of lines and even more.
+Lines must be used to get general arguments, like angles, line equation, comparisons between to lines and etc.</p>
+<div class="section" id="creating-the-line">
+<h2>Creating the Line<a class="headerlink" href="#creating-the-line" title="Permalink to this headline">¶</a></h2>
+<p>To start with a line you may want to run these commands that are below this statement.</p>
+<dl class="function">
+<dt id="line.Line">
+<code class="descclassname">line.</code><code class="descname">Line</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#line.Line" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>To start getting a line done in the GeoMath system, you must run this command! This is an object assigned function, so you must assign it to an object so it can be called</p>
+<p><code class="docutils literal"><span class="pre">`LINEVAR</span> <span class="pre">=</span> <span class="pre">line.Line()`</span></code></p>
+<p>There are two ways of inputting values for a line: creating a line with 2 Points or by the Line Equation(supposing that you have it).</p>
+<dl class="function">
+<dt id="line.Create">
+<code class="descclassname">line.</code><code class="descname">Create</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#line.Create" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p>To get a line assigning two different points to it, you must run this command. It will generate a line in the instance that is in your line.</p>
+<p><code class="docutils literal"><span class="pre">`LINEVAR.Create(point.Point(0,0),</span> <span class="pre">point.Point(4,4))`</span></code></p>
+<p>Running these commands, we will generate the equation of the line simply by solving the matrix represented by the two points and by the x and y line.</p>
+<dl class="function">
+<dt id="line.CreateViaEquation">
+<code class="descclassname">line.</code><code class="descname">CreateViaEquation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#line.CreateViaEquation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
 </div>
 
 
@@ -140,10 +171,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="Figures.html" class="btn btn-neutral float-right" title="Figures" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Points.html" class="btn btn-neutral float-right" title="Point" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="Points.html" class="btn btn-neutral" title="Point" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="Figures.html" class="btn btn-neutral" title="Figures" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
