@@ -1,5 +1,4 @@
 #Line file for the GeoMath library
-
 from math import sqrt
 import re
 
@@ -23,11 +22,19 @@ class Line:
         regx = re.compile(r'(\W?\d+)\S(\W\d+)\S(\W\d+)\=(\W?\d+)')
         values = regx.findall(equation)
         values = values[0]
+        self.A = values[0]
+        self.B = values[1]
+        self.C = values[2]
 
-        print(values)
-        self.A = float(values[0])
-        self.B = float(values[1])
-        self.C = float(values[2])
+    def Equation(self):
+        if self.createdby == "equation":
+            return("{}x{}y{}=0".format(self.A, self.B, self.C))
+        elif self.createdby == "points":
+            self.A = (self.PointOne.y - self.PointTwo.y)
+            self.B = (self.PointTwo.x - self.PointOne.x)
+            self.C = ((self.PointOne.x * self.PointTwo.y) - (self.PointOne.y * self.PointTwo.x))
+            return("{}x{}y{}=0".format(self.A, self.B, self.C)) # Fix the return of the equation!
+
 
     def __repr__(self):
         if self.createdby == "equation":
@@ -38,8 +45,8 @@ class Line:
     # HERE THE LINE ONLY ATTRIBUTES END
 
     def PointDistance(self, PointTwo):
-        A = ((self.A * PointTwo.x) + (self.B * PointTwo.y) + self.C)
-        #return(A)
-        B = sqrt((self.A * self.A) + (self.B * self.B))
-        solved = A / B
-        return(solved)
+        EquationA = ((float(self.A) * float(PointTwo.x)) + (float(self.B) * float(PointTwo.y)) + float(self.C))
+        if EquationA == 0:
+            raise ValueError('Point is inside the line!')
+        EquationB = sqrt((float(self.A) * float(self.A)) + (float(self.B) * float(self.B)))
+        return(float(EquationA) / float(EquationB))
