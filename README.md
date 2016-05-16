@@ -57,10 +57,10 @@ Done! Now you can use GeoMath!
 There are some contributors that were valuable to the project, so we need to mention them in this section.
 
 - [Vinicius Mesel](http://www.github.com/vmesel/) - Project Maintainer
+- [Eduardo Mendes](https://github.com/z4r4tu5tr4) - Core developer
 - [Wellington Santos](https://github.com/Wellington475) - Core Developer
 - [Renan Palmeira](https://github.com/RenanPalmeira) - Main Debugger
 - [Regis da Silva](https://github.com/rg3915) - Mathematician
-
 
 ##TODO
 
