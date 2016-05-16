@@ -7,7 +7,7 @@ setup(
   author = 'Vinicius Mesel',
   author_email = 'me@vmesel.com',
   url = 'https://github.com/vmesel/GeoMath/',
-  download_url = 'https://www.github.com/vmesel/GeoMath/tarball/0.1.1',
+  download_url = 'https://www.github.com/vmesel/GeoMath/tarball/0.1.2',
   keywords = ['geometry', 'math', 'euclidean geometry'],
   classifiers = [],
 )
