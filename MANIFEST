@@ -3,5 +3,6 @@ setup.cfg
 setup.py
 geomath/__init__.py
 geomath/figure.py
+geomath/info.py
 geomath/line.py
 geomath/point.py

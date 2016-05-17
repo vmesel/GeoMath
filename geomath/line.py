@@ -79,7 +79,11 @@ class Line:
         elif self.Angular is not angLineTwo:
             return("Function under development")
             #We need to detect the other types of lines
+            #If angular and linear coefficient are different, they are different
 
     def point_alignment(self, PointThree):
-        #Function under development
+        # [ 0, 0, 1 ]
+        # [ 4, 4, 1 ]
+        # [ 7, 7, 1 ]
+        # This will return true or false
         pass
