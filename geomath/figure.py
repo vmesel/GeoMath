@@ -27,7 +27,9 @@ class Figure:
         return result
 
     def perimeter(self):
-        "Perimeter Property for Figure Object in GeoMath library"
+        """
+        Perimeter Property for Figure Object in GeoMath library
+        """
         n = len(self.polygonPoints)
         p = 0.0
         for i in range(n):
@@ -36,32 +38,18 @@ class Figure:
         return(p)
 
     def barycenter(points):
-        "Barycenter Property for Figure Object in GeoMath library"
-
+        """
+        Barycenter Property for Figure Object in GeoMath library
+        """
         i = 0
         arrayx = []
         arrayy = []
         for point in points:
             arrayx.append(point.x)
             arrayy.append(point.y)
-
         XPoint = sum(arrayx) / len(arrayx)
         YPoint = sum(arrayx) / len(arrayy)
-
         return(("Point(%s, %s)") % (XPoint, YPoint))
-
-    def area(self):
-        _points = self.polygonPoints
-        if len(_points) == 3:
-            # Triangle
-            # Calculate the area with matrix
-            pass
-        elif len(_points) == 4:
-            # Square or rectangle
-            pass
-        elif len(_points) > 4:
-            # Polygon
-            pass
 
     def __repr__(self):
         points = ""
@@ -73,6 +61,38 @@ class Figure:
 class Circumference():
     def __init__(self):
         self.centerPoint = None
-        self.radius = 0
-        self.area = 0
-        self.perimeter = 0
+        self.outsidePoint = None
+        self.Eq = None
+        self.Rad = 0
+        self.A = 0
+        self.Per = 0
+        self.createdby = None
+
+    def create_points(self, centerPoint, outsidePoint):
+        from .point import Point
+        import math
+        self.centerPoint = centerPoint
+        self.outsidePoint = outsidePoint
+        self.Rad = centerPoint.distance(outsidePoint)
+        self.createdby = "points"
+        self.Eq = "({}-{})ˆ2 + ({}-{})^2={}ˆ2".format(outsidePoint.x, centerPoint.x, outsidePoint.y, centerPoint.y, self.Rad)
+        self.A = float(self.Rad) ** float(2) * math.pi #math.pi * (float(self.radius) ** float(2))
+        self.Per = 2 * math.pi * self.Rad
+
+    def create_equation(self, equation):
+        self.Eq = equation
+        self.createdby = "equation"
+
+    def area(self):
+        return(self.A)
+
+    def perimeter(self):
+        return(self.Per)
+
+    def equation(self):
+        if self.createdby == "equation":
+            return(self.Eq)
+        return(self.Eq)
+
+    def radius(self):
+        return(self.Rad)

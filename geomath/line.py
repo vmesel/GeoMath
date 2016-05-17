@@ -27,7 +27,11 @@ class Line:
         self.createdby = "points"
         self.A = float(self.PointOne.y - self.PointTwo.y)
         self.B = float(self.PointTwo.x - self.PointOne.x)
+        if self.B > 0 or self.B == 0:
+            self.B = "+" + str(self.B)
         self.C = ((self.PointOne.x * self.PointTwo.y) - (self.PointOne.y * self.PointTwo.x))
+        if self.C > 0 or self.C == 0:
+            self.C = "+" + str(self.C)
 
     def create_via_equation(self, equation):
         """
