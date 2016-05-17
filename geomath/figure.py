@@ -4,30 +4,37 @@ from math import sqrt
 class Figure:
     "Figure Object in GeoMath library"
 
-    def __init__(self):
-        self.points = []
+    def __init__(self, figureType=None):
+        self.polygonPoints = []
 
     def add_point(self, point):
-        self.points.append((point))
+        self.polygonPoints.append((point))
 
     def add_points(self, point):
         for p in point:
-            self.points.append((p))
+            self.polygonPoints.append((p))
 
-    # Perimeter formula for getting the figure perimeter
+    def area(self):
+        """
+        Area Class based on a StackOverflow post
+        """
+        n = len(self.polygonPoints) # of corners
+        a = 0.0
+        for i in range(n):
+            j = (i + 1) % n
+            a += abs(self.polygonPoints[i].x * self.polygonPoints[j].y - self.polygonPoints[j].x * self.polygonPoints[i].y)
+        result = a / 2.0
+        return result
+
     def perimeter(self):
         "Perimeter Property for Figure Object in GeoMath library"
-        perimeter = 0.0
-        if len(self.points) >= 3:
-            points = self.points + [self.points[0]]
-            for i in range(len(self.points)):
-                perimeter += Line.distance(points[i], points[i+1])
-            return(perimeter)
-        else:
-            return("You need at least 3 points to calculate the Perimeter property!")
+        n = len(self.polygonPoints)
+        p = 0.0
+        for i in range(n):
+            j = (i + 1) % n
+            p += abs(self.polygonPoints[i].distance(self.polygonPoints[j]))
+        return(p)
 
-
-    # Calculating figure barycenter
     def barycenter(points):
         "Barycenter Property for Figure Object in GeoMath library"
 
@@ -44,7 +51,7 @@ class Figure:
         return(("Point(%s, %s)") % (XPoint, YPoint))
 
     def area(self):
-        _points = self.points
+        _points = self.polygonPoints
         if len(_points) == 3:
             # Triangle
             # Calculate the area with matrix
@@ -56,10 +63,16 @@ class Figure:
             # Polygon
             pass
 
-
     def __repr__(self):
-        pontos = ""
-        for point in self.points:
+        points = ""
+        for point in self.polygonPoints:
             pontos = pontos + str(point) + " "
-        figureString = "Figure Points: " + pontos
+        figureString = "Figure Points: " + points
         return(figureString)
+
+class Circumference():
+    def __init__(self):
+        self.centerPoint = None
+        self.radius = 0
+        self.area = 0
+        self.perimeter = 0
