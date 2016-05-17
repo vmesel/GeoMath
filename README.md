@@ -2,7 +2,7 @@
 
 ----------------------
 
-![image](imgs/geomath.png)
+![image](imgs/geomath.svg)
 
 
 GeoMath is a library that enables every common user that is used to Python to work with Analytical Geometry in Python 3.X. This library is free to use and open source, so you can download and use!
