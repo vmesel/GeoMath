@@ -4,10 +4,17 @@ from geomath import point as p
 import re
 
 class Line:
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """
-        These are the initial line parameters
+            Using:
+
+            >>> line = l.Line(p.Point(2,2), p.Point(4,4))
+            Line(Point(2, 2), Point(4, 4))
+
+            >>> line = l.Line("-8x+6y-8=0")
+            A: -8 B: +6 C: -8
         """
+        #These are the initial line parameters
         self.PointOne = 0
         self.PointTwo = 0
         self.Angulation = 0
@@ -18,7 +25,20 @@ class Line:
         self.C = 0
         self.createdby = None
 
-    def create(self,PointOne, PointTwo):
+        if len(args)>1:
+            if isinstance(args[0], p.Point) and isinstance(args[1], p.Point):
+                self.create(args[0], args[1])
+
+        if len(args)==1:
+            if isinstance(args[0], p.Point) and "m" in kwargs:
+                # Calculate line from the slope
+                # Example using: line = l.Line(p.Point(2,2), m=4)
+                pass
+            
+            elif type(args[0]) is str:
+                self.create_via_equation(args[0])
+
+    def create(self, PointOne, PointTwo):
         """
         This function is for getting a line created by two points
         """
@@ -60,7 +80,7 @@ class Line:
         if self.createdby == "equation":
             return("A: {} B: {} C: {}".format(self.A, self.B, self.C))
         elif self.createdby == "points":
-            return("Line({},{})".format(self.PointOne, self.PointTwo))
+            return("Line({}, {})".format(self.PointOne, self.PointTwo))
 
     # HERE THE LINE ONLY ATTRIBUTES END
 
