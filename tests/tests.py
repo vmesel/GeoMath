@@ -12,7 +12,7 @@ class PointTest(unittest.TestCase):
         assert(p.Point(9, 8).distance(p.Point(1, 2)) == 10)
 
     def test_midpoint(self):
-        assert(str(p.Point(9, 8).midpoint(p.Point(1, 2)) == "(5.0, 5.0)"))
+        assert(str(p.Point(9, 8).midpoint(p.Point(1, 2))) == "Point(5.0, 5.0)")
 
     def test_quadrant(self):
         assert(p.Point(2, -8).quadrant() == 4)
@@ -34,7 +34,7 @@ class LineTest(unittest.TestCase):
         p2 = p.Point(4, 4)
         line = l.Line()
         line.create(p1, p2)
-
+        print(line.A)
         assert(line.A == (-1.5))
 
     def test_BCoefficient(self):
