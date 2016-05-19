@@ -34,8 +34,8 @@ class LineTest(unittest.TestCase):
         p2 = p.Point(4, 4)
         line = l.Line()
         line.create(p1, p2)
-        print(line.A)
-        assert(line.A == (-1.5))
+
+        assert(float(line.A) == (-1.5))
 
     def test_BCoefficient(self):
         p1 = p.Point(2, 2.5)
@@ -43,7 +43,7 @@ class LineTest(unittest.TestCase):
         line = l.Line()
         line.create(p1, p2)
 
-        assert(line.B == 2.0)
+        assert(float(line.B) == 2.0)
 
     def test_CCoefficient(self):
         p1 = p.Point(2, 2.5)
@@ -51,7 +51,7 @@ class LineTest(unittest.TestCase):
         line = l.Line()
         line.create(p1, p2)
 
-        assert(line.C == (-2.0))
+        assert(float(line.C) == (-2.0))
 
 
 if __name__ == '__main__':
