@@ -1,5 +1,6 @@
 #Figure file for the GeoMath library
 from math import sqrt
+from general import General
 
 class Figure:
     "Figure Object in GeoMath library"
@@ -24,7 +25,7 @@ class Figure:
             j = (i + 1) % n
             a += abs(self.polygonPoints[i].x * self.polygonPoints[j].y - self.polygonPoints[j].x * self.polygonPoints[i].y)
         result = a / 2.0
-        return result
+        return General().fix_float(result)
 
     def perimeter(self):
         """
@@ -35,7 +36,7 @@ class Figure:
         for i in range(n):
             j = (i + 1) % n
             p += abs(self.polygonPoints[i].distance(self.polygonPoints[j]))
-        return(p)
+        return(General().fix_float(p))
 
     def barycenter(points):
         """
@@ -75,7 +76,7 @@ class Circumference():
         self.outsidePoint = outsidePoint
         self.Rad = centerPoint.distance(outsidePoint)
         self.createdby = "points"
-        self.Eq = "({}-{})ˆ2 + ({}-{})^2={}ˆ2".format(outsidePoint.x, centerPoint.x, outsidePoint.y, centerPoint.y, self.Rad)
+        self.Eq = "(x-{})ˆ2 + (y-{})^2={}ˆ2".format(centerPoint.x, centerPoint.y, self.Rad)
         self.A = float(self.Rad) ** float(2) * math.pi #math.pi * (float(self.radius) ** float(2))
         self.Per = 2 * math.pi * self.Rad
 
@@ -84,15 +85,13 @@ class Circumference():
         self.createdby = "equation"
 
     def area(self):
-        return(self.A)
+        return(General().fix_float(self.A))
 
     def perimeter(self):
-        return(self.Per)
+        return(General().fix_float(self.Per))
 
     def equation(self):
-        if self.createdby == "equation":
-            return(self.Eq)
         return(self.Eq)
 
     def radius(self):
-        return(self.Rad)
+        return(General().fix_float(self.Rad))
