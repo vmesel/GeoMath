@@ -1,4 +1,4 @@
-# GeoMath [![Build Status](https://travis-ci.org/vmesel/GeoMath.svg?branch=master)](https://travis-ci.org/vmesel/GeoMath) [![PyPI version] (https://badge.fury.io/py/geomath.svg)](https://badge.fury.io/py/geomath) 
+# GeoMath [![Build Status](https://travis-ci.org/vmesel/GeoMath.svg?branch=master)](https://travis-ci.org/vmesel/GeoMath) [![PyPI version] (https://badge.fury.io/py/geomath.svg)](https://badge.fury.io/py/geomath)
 
 ----------------------
 
@@ -20,7 +20,7 @@ P1 = Point(0,0) # We create a Point
 P2 = Point(4,4) # We create another Point
 L1 = Line()
 L1.create(P1,P2)
-L1.equation() #it will return the line equation 
+L1.equation() #it will return the line equation
 ```
 
 The library is very simple to use, the examples and usage guide are available in [GeoMath.co](http://geomath.co), and the documentation is available in [this link](https://geomath.readthedocs.io/).
@@ -62,6 +62,6 @@ There are some contributors that were valuable to the project, so we need to men
 - [Renan Palmeira](https://github.com/RenanPalmeira) - Main Debugger
 - [Regis da Silva](https://github.com/rg3915) - Mathematician
 
-##TODO
+##[TODO](/todo.md)
 
 If you want to contribute, fork it into a REPO and help us develop this tool for everyone, or write an Issue so we can work on it!
