@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Complete Test suite for GeoMath library
 
 PYTHONPATH=. coverage run test.py
 
