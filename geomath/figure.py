@@ -1,6 +1,6 @@
 #Figure file for the GeoMath library
 from math import sqrt
-from general import General
+from .general import General
 
 class Figure:
     "Figure Object in GeoMath library"
