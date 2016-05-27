@@ -1,5 +1,7 @@
 # Point file for the GeoMath library
 from math import sqrt
+from geomath.general import General as g
+
 class Point:
     "Point Object in GeoMath library"
 
@@ -21,12 +23,6 @@ class Point:
 
     # Euclidean distance between "self" and "PointTwo".
     def distance(self, PointTwo=None):
-        '''
-        If other is not specified, the origin point is used.
-
-        :param: other - Point subclass
-        :return: float
-        '''
         if PointTwo is None:
             PointTwo = self.__class__()
 
@@ -50,4 +46,6 @@ class Point:
 
     # Defines the output of the point
     def __repr__(self):
-        return(("%s(%s, %s)") % (self.__class__.__name__, self.x, self.y))
+        if type(self.x) == "float":
+            return(("%s(%s, %s)") % (self.__class__.__name__, g.fix_float(self.x), g.fix_float(self.y)))
+        return(("%s(%s, %s)") % (self.__class__.__name__, (self.x), (self.y)))
