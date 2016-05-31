@@ -37,7 +37,7 @@ class Line:
         if len(args) == 1:
             if isinstance(args[0], p.Point) and "m" in kwargs:
                 self.create_via_slope(args[0], kwargs['m'])
-            
+
         elif type(args[0]) is str:
             self.create_via_equation(args[0])
 

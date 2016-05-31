@@ -25,7 +25,7 @@ class Figure:
         for i in range(n):
             j = (i + 1) % n
             with polygonPoints as pP:
-            a += abs(self.pP[i].x * self.pP[j].y - self.pP[j].x * self.pP[i].y)
+                a += abs(self.pP[i].x * self.pP[j].y - self.pP[j].x * self.pP[i].y)
         result = a / 2.0
         return General().fix_float(result)
 
