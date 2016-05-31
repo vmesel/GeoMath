@@ -29,9 +29,9 @@ class LineTest(unittest.TestCase):
         assert(str(line) == "Line(Point(2, 2), Point(4, 4))")
 
     def test_instance_equation(self):
-        line = l.Line("-8x+6y-8=0")
+        line = l.Line("-x+y+8=0")
 
-        assert(str(line) == "A: -8 B: +6 C: -8")
+        assert(str(line) == "A: -1 B: +1 C: +8")
 
     def test_instance_one_point_and_slope(self):
         p1 = p.Point(4, 4.5)
