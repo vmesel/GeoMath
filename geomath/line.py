@@ -3,6 +3,7 @@ from math import sqrt, atan, degrees
 from geomath import point as p
 import re
 
+
 class Line:
     def __init__(self, *args, **kwargs):
         """
@@ -17,7 +18,7 @@ class Line:
             >>> line = l.Line(p.Point(4, 4.5), m=1)
             Angular:1.0 Linear:0.5
         """
-        #These are the initial line parameters
+        # These are the initial line parameters
         self.PointOne = 0
         self.PointTwo = 0
         self.Angulation = 0
@@ -28,16 +29,16 @@ class Line:
         self.C = 0
         self.createdby = None
 
-        if len(args)>1:
+        if len( args )>1:
             if isinstance(args[0], p.Point) and isinstance(args[1], p.Point):
                 self.create(args[0], args[1])
 
-        if len(args)==1:
+        if len( args )==1:
             if isinstance(args[0], p.Point) and "m" in kwargs:
                 self.create_via_slope(args[0], kwargs['m'])
             
-            elif type(args[0]) is str:
-                self.create_via_equation(args[0])
+        elif type(args[0]) is str:
+            self.create_via_equation(args[0])
 
     def create(self, PointOne, PointTwo):
         """
@@ -50,12 +51,11 @@ class Line:
         self.B = float(self.PointTwo.x - self.PointOne.x)
         self.Angular = float(((self.PointTwo.y - self.PointOne.y) / (self.PointTwo.x - self.PointOne.x)))
         self.Angulation = degrees(atan(float(self.Angular)))
-        
         self.Linear = float(self.PointOne.y - (self.Angular * self.PointOne.x))
 
         if self.B > 0 or self.B == 0:
             self.B = "+" + str(self.B)
-        
+
         self.C = ((self.PointOne.x * self.PointTwo.y) - (self.PointOne.y * self.PointTwo.x))
         if self.C > 0 or self.C == 0:
             self.C = "+" + str(self.C)
@@ -73,8 +73,8 @@ class Line:
         self.C = values[2]
         self.Angular = (float(values[0]) / float(values[1]))
         self.Angulation = degrees(atan(float(self.Angular)))
-        self.PointOne = p.Point(float(self.C) / float(self.A),0)
-        self.PointTwo = p.Point(0, float(self.C) / float(self.B))
+        self.PointOne = p.Point(float(self.C) / float(self.A) , 0)
+        self.PointTwo = p.Point(0 , float(self.C) / float(self.B))
 
     def create_via_slope(self, PointOne, slope):
         """
@@ -122,8 +122,8 @@ class Line:
             return("Paralell Lines")
         elif self.Angular is not angLineTwo:
             return("Function under development")
-            #We need to detect the other types of lines
-            #If angular and linear coefficient are different, they are different
+            # We need to detect the other types of lines
+            # If angular and linear coefficient are different, they are different
 
     def point_alignment(self, PointThree):
         # [ 0, 0, 1 ]

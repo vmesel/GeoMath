@@ -1,6 +1,7 @@
-#Figure file for the GeoMath library
+# Figure file for the GeoMath library
 from math import sqrt
 from .general import General
+
 
 class Figure:
     "Figure Object in GeoMath library"
@@ -19,11 +20,12 @@ class Figure:
         """
         Area Class based on a StackOverflow post
         """
-        n = len(self.polygonPoints) # of corners
+        n = len(self.polygonPoints)  # of corners
         a = 0.0
         for i in range(n):
             j = (i + 1) % n
-            a += abs(self.polygonPoints[i].x * self.polygonPoints[j].y - self.polygonPoints[j].x * self.polygonPoints[i].y)
+            with polygonPoints as pP:
+            a += abs(self.pP[i].x * self.pP[j].y - self.pP[j].x * self.pP[i].y)
         result = a / 2.0
         return General().fix_float(result)
 
@@ -59,6 +61,7 @@ class Figure:
         figureString = "Figure Points: " + points
         return(figureString)
 
+
 class Circumference():
     def __init__(self):
         self.centerPoint = None
@@ -77,7 +80,7 @@ class Circumference():
         self.Rad = centerPoint.distance(outsidePoint)
         self.createdby = "points"
         self.Eq = "(x-{})ˆ2 + (y-{})^2={}ˆ2".format(centerPoint.x, centerPoint.y, self.Rad)
-        self.A = float(self.Rad) ** float(2) * math.pi #math.pi * (float(self.radius) ** float(2))
+        self.A = float(self.Rad) ** float(2) * math.pi
         self.Per = 2 * math.pi * self.Rad
 
     def create_equation(self, equation):
