@@ -23,9 +23,9 @@ class Line:
         self.Angulation = 0
         self.Angular = 0
         self.Linear = 0
-        self.A = 0
-        self.B = 0
-        self.C = 0
+        self.A = ""
+        self.B = ""
+        self.C = ""
         self.createdby = None
 
         if len(args)>1:
@@ -65,13 +65,13 @@ class Line:
         This function is for getting a line created by a line equation
         """
         self.createdby = "equation"
-        regex = re.compile(r'(\W?\d+)\S(\W\d+)\S(\W\d+)\=(\W?\d+)')
+        regex = re.compile(r'([\+\-]?\d*x)\s*([\+\-]\d*y)\s*([\+\-]\d*)\s*\=\s*([\+\-]?\d*)')
         values = regex.findall(equation)
         values = values[0]
-        self.A = values[0]
-        self.B = values[1]
+        self.A = "+1" if values[0] == 'x' or values[0] == '+x' else "-1" if values[0] == '-x' else values[0][:-1]
+        self.B = "+1" if values[1] == '+y' else "-1" if values[1] == '-y' else values[1][:-1]
         self.C = values[2]
-        self.Angular = (float(values[0]) / float(values[1]))
+        self.Angular = (float(self.A) / float(self.B))
         self.Angulation = degrees(atan(float(self.Angular)))
         self.PointOne = p.Point(float(self.C) / float(self.A),0)
         self.PointTwo = p.Point(0, float(self.C) / float(self.B))
