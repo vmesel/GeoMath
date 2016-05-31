@@ -68,9 +68,10 @@ class Line:
         regex = re.compile(r'([\+\-]?\d*x)\s*([\+\-]\d*y)\s*([\+\-]\d*)\s*\=\s*([\+\-]?\d*)')
         values = regex.findall(equation)
         values = values[0]
-        self.A = "+1" if values[0] == 'x' or values[0] == '+x' else "-1" if values[0] == '-x' else values[0][:-1]
-        self.B = "+1" if values[1] == '+y' else "-1" if values[1] == '-y' else values[1][:-1]
-        self.C = values[2]
+        with values as V:
+            self.A = "+1" if V[0] == 'x' or V[0] == '+x' else "-1" if V[0] == '-x' else V[0][:-1]
+            self.B = "+1" if V[1] == '+y' else "-1" if V[1] == '-y' else V[1][:-1]
+            self.C = V[2]
         self.Angular = (float(self.A) / float(self.B))
         self.Angulation = degrees(atan(float(self.Angular)))
         self.PointOne = p.Point(float(self.C) / float(self.A) , 0)
