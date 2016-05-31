@@ -1,4 +1,4 @@
-#Line file for the GeoMath library
+# Line file for the GeoMath library
 from math import sqrt, atan, degrees
 from geomath import point as p
 import re
@@ -18,6 +18,7 @@ class Line:
             >>> line = l.Line(p.Point(4, 4.5), m=1)
             Angular:1.0 Linear:0.5
         """
+
         # These are the initial line parameters
         self.PointOne = 0
         self.PointTwo = 0
@@ -29,11 +30,11 @@ class Line:
         self.C = ""
         self.createdby = None
 
-        if len( args )>1:
+        if len(args) > 1:
             if isinstance(args[0], p.Point) and isinstance(args[1], p.Point):
                 self.create(args[0], args[1])
 
-        if len( args )==1:
+        if len(args) == 1:
             if isinstance(args[0], p.Point) and "m" in kwargs:
                 self.create_via_slope(args[0], kwargs['m'])
             
@@ -74,8 +75,8 @@ class Line:
             self.C = V[2]
         self.Angular = (float(self.A) / float(self.B))
         self.Angulation = degrees(atan(float(self.Angular)))
-        self.PointOne = p.Point(float(self.C) / float(self.A) , 0)
-        self.PointTwo = p.Point(0 , float(self.C) / float(self.B))
+        self.PointOne = p.Point(float(self.C) / float(self.A), 0)
+        self.PointTwo = p.Point(0, float(self.C) / float(self.B))
 
     def create_via_slope(self, PointOne, slope):
         """
@@ -115,7 +116,6 @@ class Line:
             raise ValueError('Point is inside the line!')
         EquationB = sqrt((float(self.A) * float(self.A)) + (float(self.B) * float(self.B)))
         return((float(EquationA) / float(EquationB)))
-
 
     def comparisor(self, LineTwo):
         angLineTwo = LineTwo.Angular
