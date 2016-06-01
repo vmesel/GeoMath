@@ -30,17 +30,11 @@ class LineTest(unittest.TestCase):
         assert(str(line) == "-2.0x+2.0y+0=0")
 
     def test_instance_equation(self):
-<<<<<<< HEAD:tests/tests.py
         line = l.Line()
         line.create_via_equation("-8x+6y-8=0")
         assert(line.equation() == "-8x+6y-8=0")
 
         #assert(str(line) == "A: -8 B: +6 C: -8")
-=======
-        line = l.Line("-x+y+8=0")
-
-        assert(str(line) == "A: -1 B: +1 C: +8")
->>>>>>> 53171d66964847537c8ec07b040e6a4da1fd196f:test.py
 
     def test_instance_one_point_and_slope(self):
         p1 = p.Point(4, 4.5)
