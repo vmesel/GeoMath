@@ -1,7 +1,5 @@
 # GeoMath [![Build Status](https://travis-ci.org/vmesel/GeoMath.svg?branch=master)](https://travis-ci.org/vmesel/GeoMath) [![PyPI version] (https://badge.fury.io/py/geomath.svg)](https://badge.fury.io/py/geomath)
 
-----------------------
-
 ![image](imgs/geomath.png)
 
 
