@@ -1,5 +1,6 @@
 # General file for corrections, problem solving and others!
 
+numbers = {int,float}
 
 class General():
     def useful_info():
