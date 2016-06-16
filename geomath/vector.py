@@ -7,7 +7,7 @@ from geomath import point as p
 
 class Vector:
     def __init__(self, a, b=None):
-        # i and j by caninical base
+        # i and j by canonical base
         self.i = 0
         self.j = 0
         if type(a) is p.Point and b is None:
