@@ -15,7 +15,7 @@ class Point:
     def midpoint(self, PointTwo):
         '''
         :param: PointTwo - Point subclass
-        :return: Point subclass
+        :return: Point - subclass
         '''
         Xm = ((self.x + PointTwo.x)/2)
         Ym = ((self.y + PointTwo.y)/2)
@@ -24,6 +24,10 @@ class Point:
 
     # Euclidean distance between "self" and "PointTwo".
     def distance(self, PointTwo=None):
+        '''
+        :param: PointTwo - Point subclass
+        :return: float - Distance
+        '''
         if PointTwo is None:
             PointTwo = self.__class__()
 
@@ -34,6 +38,9 @@ class Point:
 
     # The quadrant of point  "self".
     def quadrant(self):
+        '''
+        :return: int - Quadrant
+        '''
         if self.x > 0 and self.y > 0:
             return(1)
         elif self.x < 0 and self.y > 0:
