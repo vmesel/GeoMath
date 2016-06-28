@@ -39,7 +39,7 @@ class Line:
         This function is for getting a line created by a line equation
         """
         self.createdby = "equation"
-        regex = re.compile(r'([\+\-]?\d*x)\s*([\+\-]\d*y)\s*([\+\-]\d*)\s*\=\s*([\+\-]?\d*)')
+        regex = re.compile(r'([\+\-]?\d*.?\d*x)\s*([\+\-]?\d*.?\d*y)\s*([\+\-]\d*)\s*\=\s*([\+\-]?\d*)')
         values = regex.findall(equation)
         values = values[0]
         self.A = "+1" if values[0] == 'x' or values[0] == '+x' else "-1" if values[0] == '-x' else values[0][:-1]
@@ -95,10 +95,3 @@ class Line:
             return("Function under development")
             # We need to detect the other types of lines
             # If angular and linear coefficient are different, they are different
-
-    def point_alignment(self, PointThree):
-        # [ 0, 0, 1 ]
-        # [ 4, 4, 1 ]
-        # [ 7, 7, 1 ]
-        # This will return true or false
-        pass

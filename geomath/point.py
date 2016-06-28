@@ -4,7 +4,6 @@ from geomath.general import General as g
 
 
 class Point:
-    "Point Object in GeoMath library"
 
     # Defines the Point(x, y)
     def __init__(self, x, y):

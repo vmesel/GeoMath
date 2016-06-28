@@ -3,13 +3,17 @@
 ![image](imgs/geomath.png)
 
 
-GeoMath is a library that enables every common user that is used to Python to work with Analytical Geometry in Python 3.X. This library is free to use and open source, so you can download and use!
+GeoMath é uma biblioteca que possibilita a todos usuários a implementarem e trabalharem com Geometria Analítica em Python 3.X. Esta biblioteca é gratuita e está garantida na licença GNU GPLv3, portanto você pode baixar, redistribuir e modificar a vontade, mas sempre citando a fonte dos códigos.
 
-- Points: you can create points and calculate a ruge amount of data;
-- Lines: Do you want to join two points? Add a line and envolve them;
-- Figures: Do you want to create a figure with those points? Add them into a figure.
+A biblioteca é dividida em algumas classes:
 
-## How to Use
+- Pontos: Uma classe que define, cria e calcula vários formatos de informação com pontos;
+- Linha: Como eu posso juntar dois pontos? É simples, use uma linha;
+- Figuras: Você quer criar uma figura com estes pontos? Adicione-os dentro da figura.
+
+PS: A biblioteca ainda está em processo de tradução, portanto pode ser que você veja alguns termos em inglês, mas uma rápida googlada te ajudará a entende-los.
+
+## Como usar?
 
 ```
 from geomath.point import Point
@@ -18,38 +22,27 @@ P1 = Point(0,0) # We create a Point
 P2 = Point(4,4) # We create another Point
 L1 = Line()
 L1.create(P1,P2)
-L1.equation() #it will return the line equation
+L1.equation() #irá retornar a equação da linha
 ```
 
-The library is very simple to use, the examples and usage guide are available in [GeoMath.co](http://geomath.co), and the documentation is available in [this link](https://geomath.readthedocs.io/).
+A biblioteca é muito simples de ser usada, os exemplos e guia de uso estão disponíveis em [GeoMath.co](http://geomath.co), e a documentação está disponível [neste link](https://geomath.readthedocs.io/).
 
-## How to Install
+## Como instalar?
 
-There are two simple ways to get GeoMath installed and running on your computer:
+Existem 2 formas simples de ter o GeoMath instalado e rodando em seu computador:
 
-- from Python PyPi
-- from github(not recommended)
+- do Python PyPi
+- do github(not recommended)
 
-###Installing from PyPi
-
-To install GeoMath from PyPi, first, you have to make sure that you have pip installed in your computer. With it installed, you just need to run:
+###Instalando do PyPi
 
 ``` pip install geomath ```
 
-If everything goes fine with your installation, you just installed GeoMath and you can use it in Python.
-
-###Installing from Github
-
-Since GeoMath is under beta stages and during a very hard development state, installing GeoMath from it should not be a great idea. If you want to get the most stable version of the library you should install it via pip.
-
-To install the library from Github, you must run this command:
+###Instalando do Github
 
 ``` git clone https://www.github.com/vmesel/GeoMath.git ```
 
-After that, you should move GeoMath to the libraries folder in Python, so you can import it from any system.
 
-Done! Now you can use GeoMath!
+Pronto! Agora você pode ser um geometro!
 
 ##[TODO](/todo.md)
-
-If you want to contribute, fork it into a REPO and help us develop this tool for everyone, or write an Issue so we can work on it!
